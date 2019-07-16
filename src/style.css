@@ -1,0 +1,26 @@
+.principalLogo {
+    width: 50rem;
+    height: 25rem;
+    display: flex;
+    margin: auto;
+}
+
+.principalHome {
+text-align: center;
+font-size: 48pt;
+}
+
+.autenticationSec {
+    display: flex;
+    width: 20rem;
+    height: 15rem;
+    margin: auto;
+}
+
+.input {
+    width: 50rem;
+    height: 10rem;
+    margin: auto;
+    display: flex;
+    font-size: 48pt;
+}
