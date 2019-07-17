@@ -1,26 +1,45 @@
 .principalLogo {
-    width: 50rem;
-    height: 25rem;
+    width: 40rem;
+    height: 20rem;
     display: flex;
     margin: auto;
 }
 
 .principalHome {
-text-align: center;
-font-size: 48pt;
+    text-align: center;
+    font-size: 40pt;
+    margin: auto;
 }
 
 .autenticationSec {
-    display: flex;
+    text-align: center;
+    margin: 2rem;
+}
+
+#facebookLogo, #googleLogo {
     width: 20rem;
-    height: 15rem;
-    margin: auto;
+    height: 5rem;
+    
 }
 
 .input {
     width: 50rem;
-    height: 10rem;
-    margin: auto;
+    height: 8rem;
+    margin: 2rem;
     display: flex;
-    font-size: 48pt;
+    font-size: 40pt;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+   
+    height: 10rem;
+    text-align: center;
+    display: flex;
+    font-size: 36pt;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10rem;
 }
