@@ -2,26 +2,24 @@
     width: 40rem;
     height: 20rem;
     display: flex;
-    margin: auto;
+    margin: 2rem;
+    margin-left: auto;
+    margin-right: auto;
 }
-
 .principalHome {
     text-align: center;
     font-size: 40pt;
     margin: auto;
 }
-
 .autenticationSec {
     text-align: center;
     margin: 2rem;
 }
-
 #facebookLogo, #googleLogo {
-    width: 20rem;
-    height: 5rem;
+    width: 25rem;
+    height: 10rem;
     
 }
-
 .input {
     width: 50rem;
     height: 8rem;
@@ -32,9 +30,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-
 .button {
-   
     height: 10rem;
     text-align: center;
     display: flex;
@@ -42,4 +38,16 @@
     margin-left: auto;
     margin-right: auto;
     border-radius: 10rem;
+}
+.textForClick {
+    text-align: center;
+    font-size: 40pt;
+    margin: auto;
+    text-decoration: underline;
+    font-weight: bold;
+}
+#textForCreateAcount {
+    text-align: center;
+    font-size: 40pt;
+    margin: auto;
 }
