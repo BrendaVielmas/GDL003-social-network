@@ -68,15 +68,21 @@ Personas con daltonismo y debilidad visual que busquen estar conectadas de una f
 
 7.- El usuario quiere poder hacer publicaciones en su muro.
 
-8.- El usuario quiere personalizar la privacidad de sus publicaciones como públicas o privadas.
+8.- El usuario requiere poder editar un post ya publicado.
 
-9.- El usuario quiere poder eliminar un publicación de su muro.
+9.- El usuario requiere que se guarde la edición de su post.
 
-10.- El usuario quiere poder ver las publicaciones de otros usuarios en el muro.
+10.- El usuario requiere que al refrescar la página se visualice el post editado.
 
-11.- El usuario desea poder interactuar con las publicaciones de otros usuarios a través de likes.
+11.- El usuario quiere personalizar la privacidad de sus publicaciones como públicas o privadas.
 
-12.- El usuario desea ver un contador de sus likes y los likes que reciben otras publicaciones
+12.- El usuario quiere poder eliminar un publicación de su muro.
+
+13.- El usuario quiere poder ver las publicaciones de otros usuarios en el muro.
+
+14.- El usuario desea poder interactuar con las publicaciones de otros usuarios a través de likes.
+
+15.- El usuario desea ver un contador de sus likes y los likes que reciben otras publicaciones
 
 
 
