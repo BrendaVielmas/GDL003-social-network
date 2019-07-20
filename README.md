@@ -41,18 +41,18 @@ Lo siguiente fue crear un prototipo de baja fidelidad y testearlo con distintos 
 A la par de esto estuvimos investigando la parte técnica de como crear una red social como tal,
 (continuará...)
 
-##**Definición del producto**
+## **Definición del producto**
 
 **OpenDoors**
 
 Se le dió su nombre por el libro de Hellen Keller
 Es una red social pensada en daltónicos y personas con debilidad visual para hacer más sencilla su comunicación e interacción en línea.
 
-##**Definición de usuario**
+## **Definición de usuario**
 
 Personas con daltonismo y debilidad visual que busquen estar conectadas de una forma más accesible para ellos.
 
-##**Historias de usuario**
+## **Historias de usuario**
 
 1.- El usuario requiere poder registrarse en la red social a través de un formulario dando su nombre su correo y su contraseña.
 
@@ -88,25 +88,26 @@ Personas con daltonismo y debilidad visual que busquen estar conectadas de una f
 
 
 
-##**Instrucciones**
+## **Instrucciones**
 
-##**Interfaz de usuario (UI)**
+## **Interfaz de usuario (UI)**
+La interfaz del usuario en la versión 1.0 permite:
 
-### Creación de cuenta (sign up)
+#### Creación de cuenta (sign up)
 
 * [ ] Permite crear cuenta.
 * [ ] Valida email.
 * [ ] Valida password.
 * [ ] Muestra mensajes de error.
 
-### Inicio de sesión (sign in)
+#### Inicio de sesión (sign in)
 
 * [ ] Permite iniciar sesión.
 * [ ] Valida email.
 * [ ] Valida password.
 * [ ] Muestra mensajes de error.
 
-### Muro (wall/feed)
+#### Muro (wall/feed)
 
 * [ ] Muestra _muro_, o lista de publicaciones.
 * [ ] Permite hacer nuevas publicaciones.
@@ -119,7 +120,7 @@ Personas con daltonismo y debilidad visual que busquen estar conectadas de una f
 * [ ] Permite ver cuántas marcas, likes, estrellas, corazones o lo que se haya
   elegido, ha recibido una publicación.
 
-##**Scripts / Archivos**
+## **Scripts / Archivos**
 
 Este proyecto contiene los siguentes archivos.
 
