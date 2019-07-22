@@ -51,10 +51,28 @@ let createUser = () => {
     element.style.display = "none";
 	});
 }
+let saveData = () => {
+const docRef = firestore.doc("samples/openData");
+const enterUserName = document.querySelector("#enterUserName");
+const enterName = document.querySelector("#enterName");
+const buttonRegister = document.querySelector("#buttonRegister");
+const userNameToSave = enterUserName.value;
+const nameToSave = enterName.value;
+console.log ("I am going to save " + userNameToSave + nameToSave + " to Firestore");
+docRef.set ({
+	OpenStatus: userNameToSave
+}).then(function() {
+	console.log("Status saved!");
+}).catch(function(error) {
+	console.log("Got an error: ", error);
+});
+}
+
 
 document.getElementById("buttonSignIn").addEventListener("click", signIn);
 document.getElementById("CreateAcount").addEventListener("click", CreateAcountFunction);
 document.getElementById("buttonRegister").addEventListener("click", createUser);
+document.getElementById("buttonRegister").addEventListener("click", saveData);
 
 
 

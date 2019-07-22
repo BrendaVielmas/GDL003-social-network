@@ -9,17 +9,35 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
-
-/*const esCorreoElectronico = correoElectronico => /\S+@\S+/.test(correoElectronico);
- 
-const correosParaProbar = ["foo@bar.baz", "HolaMundo@ejemplo.com", "ejemplo@asd.com", "mark@facebook.com", "pedro@gmail.com", "asd", "123"];
-correosParaProbar.forEach(correo => {
-    console.log("¿El correo %s es válido? %s", correo, esCorreoElectronico(correo));
-});
-*/
+let firestore = firebase.firestore ();
 
 window.data = {
+
+createDataOfUsers : () => {
+
+	let db = firebase.firestore();
+
+	// Add a second document with a generated ID.
+	db.collection("users").add({
+		first: "Alan",
+		middle: "Mathison",
+		last: "Turing",
+		born: 1912
+	})
+	.then(function(docRef) {
+		console.log("Document written with ID: ", docRef.id);
+	})
+	.catch(function(error) {
+		console.error("Error adding document: ", error);
+	});
+
+	db.collection("users").get().then((querySnapshot) => {
+		querySnapshot.forEach((doc) => {
+				console.log(`${doc.id} => ${doc.data()}`);
+		});
+	});
+},
+
 
 createUser : (email, password) => {
 	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -60,3 +78,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 }
 };
+
+/*const esCorreoElectronico = correoElectronico => /\S+@\S+/.test(correoElectronico);
+ 
+const correosParaProbar = ["foo@bar.baz", "HolaMundo@ejemplo.com", "ejemplo@asd.com", "mark@facebook.com", "pedro@gmail.com", "asd", "123"];
+correosParaProbar.forEach(correo => {
+    console.log("¿El correo %s es válido? %s", correo, esCorreoElectronico(correo));
+});
+*/
