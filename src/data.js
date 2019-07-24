@@ -41,14 +41,32 @@ createDataOfUsers : (name, username) => {
 	});
 },
 
+validation : () =>{
+	var user = firebase.auth().currentUser;
+  user.sendEmailVerification().then(function() {
+  console.log("Enviando correo electrónico");
+  // Email sent.
+  }).catch(function(error) {
+  console.log("Error de verificación");
+  // An error happened.
+  });
+
+},
+
+
 
 createUser : (email, password) => {
-	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+	firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((user) => {
+		window.data.validation()
+})
+	.catch(function(error) {
 	  // Handle Errors here.
 	  let errorCode = error.code;
 	  let errorMessage = error.message;
 	  console.log(errorCode);
 	  console.log(errorMessage);
+
 	});
 },
 
@@ -74,7 +92,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 	    let isAnonymous = user.isAnonymous;
 	    let uid = user.uid;
 			let providerData = user.providerData;
-			
+
 	    // ...
 	} else {
     // User is signed out.
@@ -85,9 +103,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 };
 
 /*const itsEmail = email => /\S+@\S+/.test(email);
- 
+
 const correosParaProbar = ["foo@bar.baz", "HolaMundo@ejemplo.com", "ejemplo@asd.com", "mark@facebook.com", "pedro@gmail.com", "asd", "123"];
 correosParaProbar.forEach(email => {
     console.log("¿El correo %s es válido? %s", email, itsEmail(email));
 });*/
-
