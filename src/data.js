@@ -84,10 +84,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 }
 };
 
-const itsEmail = email => /\S+@\S+/.test(email);
+/*const itsEmail = email => /\S+@\S+/.test(email);
  
 const correosParaProbar = ["foo@bar.baz", "HolaMundo@ejemplo.com", "ejemplo@asd.com", "mark@facebook.com", "pedro@gmail.com", "asd", "123"];
 correosParaProbar.forEach(email => {
     console.log("¿El correo %s es válido? %s", email, itsEmail(email));
-});
+});*/
 

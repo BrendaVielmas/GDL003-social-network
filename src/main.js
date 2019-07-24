@@ -17,7 +17,7 @@ let signIn = () => {
 	document.getElementById("enterEmail").style.display = "none";
 	document.getElementById("enterPassword").style.display = "none";
 	document.getElementById("textForCreateAcount").style.display = "none";
-	document.getElementById("CreateAcount").style.display = "none";
+	document.getElementById("createAcount").style.display = "none";
 	document.getElementById("buttonSignIn").style.display = "none";
 	[].forEach.call(document.querySelectorAll(".autenticationSec"), function(element){
     element.style.display = "none";
@@ -27,14 +27,12 @@ let signIn = () => {
 	});
 }
 
-let CreateAcountFunction = () => {
-	document.getElementById("enterUsername").style.display = "block";
-	document.getElementById("enterName").style.display = "block";
-	document.getElementById("buttonRegister").style.display = "block";
-	document.getElementById("CreateAcount").style.display = "none";
-	document.getElementById("buttonSignIn").style.display = "block";
+let createAcountFunction = () => {
+	document.getElementById("logInPage").style.display = "block";
+	document.getElementById("createAcount").style.display = "none";
 	document.getElementById("buttonSignIn").style.display = "none";
 	document.getElementById("textForCreateAcount").style.display = "none";
+	document.getElementById("signInPage").style.display = "block";
 }
 
 let createUser = () => {
@@ -48,7 +46,7 @@ let createUser = () => {
 	document.getElementById("enterUsername").style.display = "none";
 	document.getElementById("enterName").style.display = "none";
 	document.getElementById("buttonRegister").style.display = "none";
-	document.getElementById("CreateAcount").style.display = "none";
+	document.getElementById("createAcount").style.display = "none";
 	[].forEach.call(document.querySelectorAll(".autenticationSec"), function(element){
     element.style.display = "none";
     });
@@ -64,9 +62,6 @@ let createUser = () => {
 }
 let signOutFunction = () => {
 	firebase.auth().signOut().then(function() {
-		/*document.getElementById("logInPage").style.display = "block";
-		document.getElementById("signOut").style.display = "none"; 
-		document.getElementById("userInformationInTimeline").style.display = "none";*/
 		window.location.reload()
 		// Sign-out successful.
 	  }).catch(function(error) {
@@ -78,7 +73,7 @@ let signOutFunction = () => {
 
 
 document.getElementById("buttonSignIn").addEventListener("click", signIn);
-document.getElementById("CreateAcount").addEventListener("click", CreateAcountFunction);
+document.getElementById("createAcount").addEventListener("click", createAcountFunction);
 document.getElementById("buttonRegister").addEventListener("click", createUser);
 document.getElementById("signOut").addEventListener("click", signOutFunction);
 
