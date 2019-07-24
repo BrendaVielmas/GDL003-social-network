@@ -1,7 +1,7 @@
 
-document.getElementById("signOut").style.display = "none"; 
-document.getElementById("signInPage").style.display = "none"; 
-document.getElementById("userInformationInTimeline").style.display = "none"; 
+document.getElementById("signOut").style.display = "none";
+document.getElementById("signInPage").style.display = "none";
+document.getElementById("userInformationInTimeline").style.display = "none";
 
 let username = document.getElementById("enterUsername");
 let name = document.getElementById("enterName");
@@ -13,6 +13,7 @@ let createAcountFunction = () => {
 	document.getElementById("textForCreateAcount").style.display = "none";
 	document.getElementById("signInPage").style.display = "block";
 }
+
 
 let createUser = () => {
 	name = name.value
@@ -54,8 +55,6 @@ let signIn = () => {
 	});
 }
 
-
-
 let signOutFunction = () => {
 	firebase.auth().signOut().then(function() {
 		window.location.reload()
@@ -64,17 +63,9 @@ let signOutFunction = () => {
 		// An error happened.
 	  });
 
-	
 }
-
 
 document.getElementById("buttonSignIn").addEventListener("click", signIn);
 document.getElementById("createAcount").addEventListener("click", createAcountFunction);
 document.getElementById("buttonRegister").addEventListener("click", createUser);
 document.getElementById("signOut").addEventListener("click", signOutFunction);
-
-
-
-
-
-
