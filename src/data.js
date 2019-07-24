@@ -10,12 +10,21 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+firebase.auth().onAuthStateChanged(function(user) {
+if (user){
+	console.log(user);
+	signIn()
+} else {
+	console.log("no hay usuario");
+}
+})
+
 window.data = {
 
 createDataOfUsers : (name, username) => {
 	let db = firebase.firestore();
 	// Add a second document with a generated ID.
-	db.collection("samples").add({
+	db.collection("Users").add({
 		"name" : name,
 		"username" : username
 	})
@@ -25,7 +34,7 @@ createDataOfUsers : (name, username) => {
 	.catch(function(error) {
 		console.error("Error adding document: ", error);
 	});
-	db.collection("samples").get().then((querySnapshot) => {
+	db.collection("Users").get().then((querySnapshot) => {
 		querySnapshot.forEach((doc) => {
 				console.log(`${doc.id} => ${doc.data()}`);
 		});
@@ -56,6 +65,7 @@ signIn : (email, password) => {
 authStateChanged : () => {
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
+		 console.log(user);
 	    // User is signed in.
 	    let displayName = user.displayName;
 	    let email = user.email;
@@ -63,7 +73,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 	    let photoURL = user.photoURL;
 	    let isAnonymous = user.isAnonymous;
 	    let uid = user.uid;
-	    let providerData = user.providerData;
+			let providerData = user.providerData;
+			
 	    // ...
 	} else {
     // User is signed out.
