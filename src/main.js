@@ -5,19 +5,6 @@ const timeLine = document.getElementById("timeLine");
 
 let username = document.getElementById("enterUsername");
 let name = document.getElementById("enterName");
-let post = document.getElementById("textareaForPost");
-
-
-let createPostFunction = () => {
-	post = post.value
-}
-let createAcountFunction = () => {
-	document.getElementById("logInPage").style.display = "block";
-	document.getElementById("createAcount").style.display = "none";
-	document.getElementById("buttonSignIn").style.display = "none";
-	document.getElementById("textForCreateAcount").style.display = "none";
-	document.getElementById("signInPage").style.display = "block";
-}
 
 
 

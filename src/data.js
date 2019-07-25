@@ -53,8 +53,7 @@ createDataOfUsers : (name, username) => {
 	// Add a second document with a generated ID.
 	db.collection("Users").add({
 		"name" : name,
-		"username" : username,
-		"post" : post
+		"username" : username
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -94,5 +93,4 @@ signOutFunction : () => {
 		// An error happened.
 	});
 },
-
 }
