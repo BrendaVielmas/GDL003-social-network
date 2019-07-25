@@ -13,7 +13,7 @@ body{
 #signOut, #timeLine, #signInPage, #userInformationInTimeline {
     display : none;
 }
-.principalHome, .userInformationInTimeline {
+p {
     text-align: center;
     font-size: 40pt;
     margin: auto;

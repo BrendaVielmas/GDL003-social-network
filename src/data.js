@@ -12,28 +12,6 @@ firebase.initializeApp(firebaseConfig);
 
 const observer = ()=>{
 	console.log('user')
-	/*firebase.auth().onAuthStateChanged((user) => {
-		console.log(user)
-		/*if (user){
-			goTimeLine(user);
-		console.log("existe usuario activo");
-			 console.log(user);
-				// User is signed in.
-				let displayName = user.displayName;
-				let email = user.email;
-				let emailVerified = user.emailVerified;
-				let photoURL = user.photoURL;
-				let isAnonymous = user.isAnonymous;
-				let uid = user.uid;
-				let providerData = user.providerData;
-
-				// ...
-		} else {
-			// User is signed out.
-			// ...
-		}
-	}
-);*/
 };
 
 window.data = {
@@ -47,10 +25,7 @@ window.data = {
 	  console.log("Error de verificación");
 	  // An error happened.
 	  });
-
 	},
-
-
 
 	createUser : (email, password) => {
 		firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -72,30 +47,7 @@ window.data = {
 		document.getElementById("timeLine").style.display="block"
 	},
 
-/*	authStateChanged : () => {
-	firebase.auth().onAuthStateChanged((user) => {
-		if (user){
-			goTimeLine(user);
-		console.log("existe usuario activo");
-			 console.log(user);
-		    // User is signed in.
-		    let displayName = user.displayName;
-		    let email = user.email;
-		    let emailVerified = user.emailVerified;
-		    let photoURL = user.photoURL;
-		    let isAnonymous = user.isAnonymous;
-		    let uid = user.uid;
-				let providerData = user.providerData;
 
-		    // ...
-		} else {
-	    // User is signed out.
-	    // ...
-		}
-	},
-	);
-	},
-*/
 createDataOfUsers : (name, username) => {
 	let db = firebase.firestore();
 	// Add a second document with a generated ID.
@@ -115,8 +67,6 @@ createDataOfUsers : (name, username) => {
 		});
 	});
 },
-
-
 
 signIn : (email, password) => {
 	firebase.auth().signInWithEmailAndPassword(email, password)
@@ -147,9 +97,3 @@ signOutFunction : () => {
 
 
 }
-/*const itsEmail = email => /\S+@\S+/.test(email);
-
-const correosParaProbar = ["foo@bar.baz", "HolaMundo@ejemplo.com", "ejemplo@asd.com", "mark@facebook.com", "pedro@gmail.com", "asd", "123"];
-correosParaProbar.forEach(email => {
-    console.log("¿El correo %s es válido? %s", email, itsEmail(email));
-});*/
