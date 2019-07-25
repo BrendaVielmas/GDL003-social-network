@@ -10,17 +10,92 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth().onAuthStateChanged(function(user) {
-if (user){
-	console.log(user);
-	signIn()
-} else {
-	console.log("no hay usuario");
-}
-})
+const observer = ()=>{
+	console.log('user')
+	/*firebase.auth().onAuthStateChanged((user) => {
+		console.log(user)
+		/*if (user){
+			goTimeLine(user);
+		console.log("existe usuario activo");
+			 console.log(user);
+				// User is signed in.
+				let displayName = user.displayName;
+				let email = user.email;
+				let emailVerified = user.emailVerified;
+				let photoURL = user.photoURL;
+				let isAnonymous = user.isAnonymous;
+				let uid = user.uid;
+				let providerData = user.providerData;
+
+				// ...
+		} else {
+			// User is signed out.
+			// ...
+		}
+	}
+);*/
+};
 
 window.data = {
 
+	validation : () =>{
+		var user = firebase.auth().currentUser;
+	  user.sendEmailVerification().then(function() {
+	  console.log("Enviando correo electrónico");
+	  // Email sent.
+	  }).catch(function(error) {
+	  console.log("Error de verificación");
+	  // An error happened.
+	  });
+
+	},
+
+
+
+	createUser : (email, password) => {
+		firebase.auth().createUserWithEmailAndPassword(email, password)
+	  .then((user) => {
+			window.data.validation()
+	})
+		.catch(function(error) {
+		  // Handle Errors here.
+		  let errorCode = error.code;
+		  let errorMessage = error.message;
+		  console.log(errorCode);
+		  console.log(errorMessage);
+
+		});
+	},
+
+	goTimeLine : ()=> {
+		document.getElementById("logInPage").style.display="none";
+		document.getElementById("timeLine").style.display="block"
+	},
+
+/*	authStateChanged : () => {
+	firebase.auth().onAuthStateChanged((user) => {
+		if (user){
+			goTimeLine(user);
+		console.log("existe usuario activo");
+			 console.log(user);
+		    // User is signed in.
+		    let displayName = user.displayName;
+		    let email = user.email;
+		    let emailVerified = user.emailVerified;
+		    let photoURL = user.photoURL;
+		    let isAnonymous = user.isAnonymous;
+		    let uid = user.uid;
+				let providerData = user.providerData;
+
+		    // ...
+		} else {
+	    // User is signed out.
+	    // ...
+		}
+	},
+	);
+	},
+*/
 createDataOfUsers : (name, username) => {
 	let db = firebase.firestore();
 	// Add a second document with a generated ID.
@@ -41,37 +116,17 @@ createDataOfUsers : (name, username) => {
 	});
 },
 
-validation : () =>{
-	var user = firebase.auth().currentUser;
-  user.sendEmailVerification().then(function() {
-  console.log("Enviando correo electrónico");
-  // Email sent.
-  }).catch(function(error) {
-  console.log("Error de verificación");
-  // An error happened.
-  });
 
-},
-
-
-
-createUser : (email, password) => {
-	firebase.auth().createUserWithEmailAndPassword(email, password)
-  .then((user) => {
-		window.data.validation()
-})
-	.catch(function(error) {
-	  // Handle Errors here.
-	  let errorCode = error.code;
-	  let errorMessage = error.message;
-	  console.log(errorCode);
-	  console.log(errorMessage);
-
-	});
-},
 
 signIn : (email, password) => {
-	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+	firebase.auth().signInWithEmailAndPassword(email, password)
+  .then((user) => {
+		console.log(user)
+		if(user.user.emailVerified){
+			window.data.goTimeLine()
+		}
+	})
+	.catch(function(error) {
 	  // Handle Errors here.
 	  let errorCode = error.code;
 	  let errorMessage = error.message;
@@ -89,29 +144,7 @@ signOutFunction : () => {
 	});
 },
 
-authStateChanged : () => {
-firebase.auth().onAuthStateChanged(function(user) {
-	if (user.emailVerified){
-		goTimeLine();
-	console.log("existe usuario activo");
-		 console.log(user);
-	    // User is signed in.
-	    let displayName = user.displayName;
-	    let email = user.email;
-	    let emailVerified = user.emailVerified;
-	    let photoURL = user.photoURL;
-	    let isAnonymous = user.isAnonymous;
-	    let uid = user.uid;
-			let providerData = user.providerData;
 
-	    // ...
-	} else {
-    // User is signed out.
-    // ...
-	}
-},
-);
-},
 
 }
 /*const itsEmail = email => /\S+@\S+/.test(email);

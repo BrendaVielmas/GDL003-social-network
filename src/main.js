@@ -13,7 +13,6 @@ let signIn = () => {
 	let email = document.getElementById("enterEmail").value;
 	let password = document.getElementById("enterPassword").value;
 	window.data.signIn(email, password)
-	goTimeLine();
 };
 /*	document.getElementById("signOut").style.display = "block";
 	document.getElementById("userInformationInTimeline").style.display = "block";
@@ -90,15 +89,19 @@ const signOutFunction= () => {
 	logInPage.style.display= "block";
 };
 
-const goTimeLine = () => {
-//if(user.emailVerified){
+/*
+const goTimeLine = (user) => {
+	if(user.emailVerified){
+	console.log("mensajito");
 		logInPage.style.display="none"
 		timeLine.style.display = "block";
 		signOut.style.display = "block";
-//};
+;
 console.log("usuario verificado hola!!!");
 
 };
+};
+*/
 
 
 
