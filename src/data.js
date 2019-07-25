@@ -96,12 +96,15 @@ window.data = {
 	);
 	},
 */
-createDataOfUsers : (name, username) => {
+
+createDataOfUsers : (name, username, post) => {
+
 	let db = firebase.firestore();
 	// Add a second document with a generated ID.
 	db.collection("Users").add({
 		"name" : name,
-		"username" : username
+		"username" : username,
+		"post" : post
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -143,8 +146,6 @@ signOutFunction : () => {
 		// An error happened.
 	});
 },
-
-
 
 }
 /*const itsEmail = email => /\S+@\S+/.test(email);
