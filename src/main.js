@@ -5,7 +5,11 @@ document.getElementById("userInformationInTimeline").style.display = "none";
 
 let username = document.getElementById("enterUsername");
 let name = document.getElementById("enterName");
+let post = document.getElementById("textareaForPost");
 
+let createPostFunction = () => {
+	post = post.value
+}
 let createAcountFunction = () => {
 	document.getElementById("logInPage").style.display = "block";
 	document.getElementById("createAcount").style.display = "none";

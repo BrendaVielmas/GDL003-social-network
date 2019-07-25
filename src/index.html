@@ -6,21 +6,21 @@
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
-    <button  id="signOut">Sign Out</button>
+    <button  class="button" id="signOut">Sign Out</button>
     <img class="principalLogo" src="images/principalLogo.jpg">
 
     <section id="logInPage">
       <p class=principalHome>Comparte estados y fotos con tus amigos</p>
 
       <section class=autenticationSec>
-        <img id="facebookLogo" src="images/facebookLogo.png">
+        <img id="facebookLogo" src="images/facebookLogo.jpg">
         <img id="googleLogo" src="images/googleLogo.jpg">
       </section>
       
       <p class=principalHome>o</p>
       <input type="email" class="input" id="enterEmail" placeholder="Correo Electrónico"/></input>
       <input type="password" class="input" id="enterPassword" placeholder="Contraseña"/></input>
-      <input type="button" class=button id=buttonSignIn value="Iniciar Sesión"></input>
+      <button class=button id=buttonSignIn>Iniciar Sesión</button>
       <p id=textForCreateAcount>¿No tienes cuenta?</p>
       <p class="textForClick" id="createAcount">Registrate</p>
     </section>
@@ -28,13 +28,15 @@
     <section id = "signInPage">
       <input type="text" class="input" id="enterUsername" placeholder="Nombre de Usuario"/></input>
       <input type="text" class="input" id="enterName" placeholder="Nombre Completo"/></input>
-      <input type="button" class=button id=buttonRegister value="Crear cuenta"></input>
+      <button class=button id=buttonRegister>Crear cuenta</button>
     </section>
 
     <section id = "userInformationInTimeline">
       <p id=boxForNameInformation></p>
       <p id=boxForUsernameInformation></p>
-      <textarea id=textareaForPost></textarea>
+      <h1> Publicar estado...</h1>
+      <textarea rows="6" cols="70"  id=textareaForPost></textarea>
+      <button class="button" id="buttonForCreatePost">Publicar</button>
     </section>
 
     <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
