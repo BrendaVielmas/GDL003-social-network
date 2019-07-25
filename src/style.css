@@ -1,3 +1,7 @@
+body{
+  text-align: center;
+}
+
 .principalLogo {
     width: 40rem;
     height: 20rem;
@@ -6,7 +10,7 @@
     margin-left: auto;
     margin-right: auto;
 }
-#signOut {
+#signOut, #timeLine, #signInPage, #userInformationInTimeline {
     display : none;
 }
 .principalHome, .userInformationInTimeline {
@@ -21,7 +25,7 @@
 #facebookLogo, #googleLogo {
     width: 25rem;
     height: 10rem;
-    
+
 }
 .input {
     width: 50rem;
@@ -54,4 +58,3 @@
     font-size: 40pt;
     margin: auto;
 }
-

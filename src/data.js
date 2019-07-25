@@ -80,9 +80,20 @@ signIn : (email, password) => {
 	});
 },
 
+signOutFunction : () => {
+	firebase.auth().signOut().then(function() {
+		window.location.reload()
+		// Sign-out successful.
+	  }).catch(function(error) {
+		// An error happened.
+	});
+},
+
 authStateChanged : () => {
 firebase.auth().onAuthStateChanged(function(user) {
-	if (user) {
+	if (user.emailVerified){
+		goTimeLine();
+	console.log("existe usuario activo");
 		 console.log(user);
 	    // User is signed in.
 	    let displayName = user.displayName;
@@ -98,10 +109,11 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed out.
     // ...
 	}
-});
-}
-};
+},
+);
+},
 
+}
 /*const itsEmail = email => /\S+@\S+/.test(email);
 
 const correosParaProbar = ["foo@bar.baz", "HolaMundo@ejemplo.com", "ejemplo@asd.com", "mark@facebook.com", "pedro@gmail.com", "asd", "123"];
