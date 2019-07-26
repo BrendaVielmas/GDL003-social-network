@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Open</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
@@ -11,8 +12,9 @@
     <section id="logInPage">
       <p>Comparte estados y fotos con tus amigos</p>
 
-      <img id="facebookLogo" src="images/facebookLogo.png">
-      <img id="googleLogo" src="images/googleLogo.jpg">
+      <div id="authContainer"></div>
+    <!--  <div class="icon" id= "facebookIcon"></div>
+      <button id= "gmailIcon" class="icon"></button> -->
 
       <p>ó</p>
 
@@ -37,6 +39,7 @@
       <button class="button" id=buttonRegister>Crear cuenta</button>
     </section>
 
+  <main>
     <section id="timeLine">
       <button class="button"  id="signOut">Sign Out</button>
       <p id=boxForNameInformation></p>
@@ -45,11 +48,12 @@
       <textArea id= "timelinePost" type="textArea" rows= "6"  cols= "70" placeholder= "¿Cómo te sientes?"></textarea>
       <button class="button" id="buttonForCreatePost">PUBLICAR</button>
     </section>
-
+  </main>
 
     <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.11.0/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
 

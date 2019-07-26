@@ -11,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const observer = ()=>{
-	console.log('user')
+	console.log('usuario activo')
 };
 
 window.data = {
@@ -44,7 +44,8 @@ window.data = {
 
 	goTimeLine : ()=> {
 		document.getElementById("logInPage").style.display="none";
-		document.getElementById("timeLine").style.display="block"
+		document.getElementById("timeLine").style.display="block";
+		document.getElementById("signOut").style.display="block";
 	},
 
 
@@ -71,7 +72,8 @@ createDataOfUsers : (name, username) => {
 signIn : (email, password) => {
 	firebase.auth().signInWithEmailAndPassword(email, password)
   .then((user) => {
-		console.log(user)
+		console.log(user);
+		console.log("usuario activo");
 		if(user.user.emailVerified){
 			window.data.goTimeLine()
 		}
