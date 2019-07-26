@@ -10,14 +10,30 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-const observer = ()=>{
-	console.log('usuario activo')
-};
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+		 console.log(user);
+			// User is signed in.
+			let displayName = user.displayName;
+			let email = user.email;
+			let emailVerified = user.emailVerified;
+			let photoURL = user.photoURL;
+			let isAnonymous = user.isAnonymous;
+			let uid = user.uid;
+			let providerData = user.providerData;
+
+			// ...
+	} else {
+		// User is signed out.
+		// ...
+	};
+})
+
 
 window.data = {
 
 	validation : () =>{
-		var user = firebase.auth().currentUser;
+		let user = firebase.auth().currentUser;
 	  user.sendEmailVerification().then(function() {
 	  console.log("Enviando correo electrónico");
 	  // Email sent.
@@ -54,7 +70,8 @@ createDataOfUsers : (name, username) => {
 	// Add a second document with a generated ID.
 	db.collection("Users").add({
 		"name" : name,
-		"username" : username
+		"username" : username,
+		"post" : post
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -94,4 +111,5 @@ signOutFunction : () => {
 		// An error happened.
 	});
 },
+
 }
