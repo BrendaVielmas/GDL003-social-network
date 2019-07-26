@@ -10,14 +10,30 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-const observer = ()=>{
-	console.log('user')
-};
+
+firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+		 console.log(user);
+			// User is signed in.
+			let displayName = user.displayName;
+			let email = user.email;
+			let emailVerified = user.emailVerified;
+			let photoURL = user.photoURL;
+			let isAnonymous = user.isAnonymous;
+			let uid = user.uid;
+			let providerData = user.providerData;
+
+			// ...
+	} else {
+		// User is signed out.
+		// ...
+	};
+})
 
 window.data = {
 
 	validation : () =>{
-		var user = firebase.auth().currentUser;
+		let user = firebase.auth().currentUser;
 	  user.sendEmailVerification().then(function() {
 	  console.log("Enviando correo electrónico");
 	  // Email sent.
@@ -45,6 +61,7 @@ window.data = {
 	goTimeLine : ()=> {
 		document.getElementById("logInPage").style.display="none";
 		document.getElementById("timeLine").style.display="block"
+		document.getElementById("signOut").style.display="block"
 	},
 
 
@@ -53,7 +70,8 @@ createDataOfUsers : (name, username) => {
 	// Add a second document with a generated ID.
 	db.collection("Users").add({
 		"name" : name,
-		"username" : username
+		"username" : username,
+		"post" : post
 	})
 	.then(function(docRef) {
 		console.log("Document written with ID: ", docRef.id);
@@ -71,7 +89,8 @@ createDataOfUsers : (name, username) => {
 signIn : (email, password) => {
 	firebase.auth().signInWithEmailAndPassword(email, password)
   .then((user) => {
-		console.log(user)
+		console.log(user);
+		console.log("usuario activo");
 		if(user.user.emailVerified){
 			window.data.goTimeLine()
 		}
@@ -93,4 +112,34 @@ signOutFunction : () => {
 		// An error happened.
 	});
 },
+
+
+/*
+
+
+firebase.auth().createUserWithEmailAndPassword(correo, contra).then(function(user) {
+	
+	"edita el perfil"
+	user.updateProfile({
+  //aqui guardas los componentes
+  displayName: username
+	}).then(function() {
+		alert();
+	}, function(error) {
+		swal(error);
+	});        
+	}, function(error) {
+  // Handle Errors here.
+	var errorCode = error.code;
+	var errorMessage = error.message;
+	// [START_EXCLUDE]
+	if (errorCode == 'auth/weak-password') {
+			swal('La contraseña es muy corta');
+	} else {
+			swal(errorMessage);
+	}
+	// [END_EXCLUDE]
+});
+
+*/
 }

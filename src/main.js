@@ -5,8 +5,11 @@ const timeLine = document.getElementById("timeLine");
 
 let username = document.getElementById("enterUsername");
 let name = document.getElementById("enterName");
+let post = document.getElementById("timelinePost");
 
-
+let createPostFunction = () => {
+	post = document.getElementById("timelinePost").value;
+}
 
 let signIn = () => {
 	let email = document.getElementById("userEmail").value;
@@ -16,7 +19,7 @@ let signIn = () => {
 
 let createAcountFunction = () => {
 	logInPage.style.display= "none";
-	signInPage.style.display = "block"
+	signInPage.style.display = "block";
 };
 
 let createUser = () => {
