@@ -58,3 +58,8 @@ p {
     font-size: 40pt;
     margin: auto;
 }
+
+#authContainer{
+  weight: 100%;
+  heigth: 100%;
+}
