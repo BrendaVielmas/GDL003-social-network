@@ -169,9 +169,10 @@ body{
     margin-bottom: 15rem;
 }
 
-#signOut, #timeLine, #signInPage, #userInformationInTimeline {
+ #signInPage {
     display : none;
 }
+
 
 p {
     text-align: center;
@@ -227,4 +228,5 @@ p {
 }
 
 }
-}
+
+

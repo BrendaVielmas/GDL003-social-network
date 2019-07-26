@@ -10,7 +10,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		 console.log(user);
@@ -29,6 +28,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		// ...
 	};
 })
+
 
 window.data = {
 
@@ -60,8 +60,8 @@ window.data = {
 
 	goTimeLine : ()=> {
 		document.getElementById("logInPage").style.display="none";
-		document.getElementById("timeLine").style.display="block"
-		document.getElementById("signOut").style.display="block"
+		document.getElementById("timeLine").style.display="block";
+		document.getElementById("signOut").style.display="block";
 	},
 
 
@@ -106,10 +106,10 @@ signIn : (email, password) => {
 
 signOutFunction : () => {
 	firebase.auth().signOut().then(function() {
-		window.location.reload()
 		// Sign-out successful.
 	  }).catch(function(error) {
 		// An error happened.
 	});
 },
+
 }
