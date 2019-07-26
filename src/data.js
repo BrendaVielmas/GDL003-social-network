@@ -112,34 +112,4 @@ signOutFunction : () => {
 		// An error happened.
 	});
 },
-
-
-/*
-
-
-firebase.auth().createUserWithEmailAndPassword(correo, contra).then(function(user) {
-	
-	"edita el perfil"
-	user.updateProfile({
-  //aqui guardas los componentes
-  displayName: username
-	}).then(function() {
-		alert();
-	}, function(error) {
-		swal(error);
-	});        
-	}, function(error) {
-  // Handle Errors here.
-	var errorCode = error.code;
-	var errorMessage = error.message;
-	// [START_EXCLUDE]
-	if (errorCode == 'auth/weak-password') {
-			swal('La contraseña es muy corta');
-	} else {
-			swal(errorMessage);
-	}
-	// [END_EXCLUDE]
-});
-
-*/
 }
