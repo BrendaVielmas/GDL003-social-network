@@ -1,6 +1,6 @@
 const signOutButton= () => {
 	window.data.signOutFunction()
-	location.replace("/");
+	location.replace("/src/");
 };
 
 document.getElementById("signOut").addEventListener("click", signOutButton);
