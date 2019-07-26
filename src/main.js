@@ -96,3 +96,5 @@ document.getElementById("buttonSignIn").addEventListener("click", signIn);
 document.getElementById("createAcount").addEventListener("click", createAcountFunction);
 document.getElementById("buttonRegister").addEventListener("click", createUser);
 document.getElementById("signOut").addEventListener("click", signOutFunction);
+
+//QUIERO QUE SE VEAN LOS CAMBIOS
