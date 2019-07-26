@@ -10,7 +10,7 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
-#signOut, #timeLine, #signInPage, #userInformationInTimeline {
+#signInPage, #userInformationInTimeline {
     display : none;
 }
 p {

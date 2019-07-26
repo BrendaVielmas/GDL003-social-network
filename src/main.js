@@ -62,7 +62,7 @@ gmailAuth.addEventListener("click", ()=> {
 });
 });
 */
-let ui = new firebaseui.auth.AuthUI(firebase.auth());
+
 let uiConfig = {
  callbacks: {
    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
@@ -78,7 +78,7 @@ let uiConfig = {
  },
  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
  signInFlow: 'popup',
- signInSuccessUrl: 'index.html',
+ signInSuccessUrl: 'muro.html',
  signInOptions: [
    // Leave the lines as is for the providers you want to offer your users.
    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -90,11 +90,12 @@ let uiConfig = {
  // Privacy policy url.
  privacyPolicyUrl: '<your-privacy-policy-url>'
 };
+let ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#authContainer', uiConfig);
 
-document.getElementById("buttonSignIn").addEventListener("click", signIn);
-document.getElementById("createAcount").addEventListener("click", createAcountFunction);
-document.getElementById("buttonRegister").addEventListener("click", createUser);
-document.getElementById("signOut").addEventListener("click", signOutFunction);
+//document.getElementById("buttonSignIn").addEventListener("click", signIn);
+//document.getElementById("createAcount").addEventListener("click", createAcountFunction);
+//document.getElementById("buttonRegister").addEventListener("click", createUser);
+
 
 //QUIERO QUE SE VEAN LOS CAMBIOS
