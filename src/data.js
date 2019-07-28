@@ -12,6 +12,8 @@ firebase.initializeApp(firebaseConfig);
 
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
+		 console.log(user.emailVerified);
+		 console.log("usuario conectado");
 		 console.log(user);
 			// User is signed in.
 			let displayName = user.displayName;
@@ -21,11 +23,16 @@ firebase.auth().onAuthStateChanged(function(user) {
 			let isAnonymous = user.isAnonymous;
 			let uid = user.uid;
 			let providerData = user.providerData;
-
+		const obj ={
+			name : user.displayName,
+			email : user.email,
+			photo : user.photoURL
+		}
+		document.getElementById("profile").innerHTML= obj.name+ '<br>' + obj.email + '<br>'+`<img src=${obj.photo }>`;
 			// ...
 	} else {
 		// User is signed out.
-		// ...
+		console.log("usuario desconectado");
 	};
 })
 
@@ -59,9 +66,7 @@ window.data = {
 	},
 
 	goTimeLine : ()=> {
-		document.getElementById("logInPage").style.display="none";
-		document.getElementById("timeLine").style.display="block";
-		document.getElementById("signOut").style.display="block";
+		location.assign("muro.html");
 	},
 
 
