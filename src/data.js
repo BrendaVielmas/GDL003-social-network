@@ -45,6 +45,7 @@ window.data = {
 	  console.log("Enviando correo electrónico");
 	  // Email sent.
 	  }).catch(function(error) {
+		document.getElementById("notificationARIA").innerHTML=("Error de verificación");
 	  console.log("Error de verificación");
 	  // An error happened.
 	  });
@@ -59,6 +60,7 @@ window.data = {
 		  // Handle Errors here.
 		  let errorCode = error.code;
 		  let errorMessage = error.message;
+			document.getElementById("notificationARIA").innerHTML=("La dirección de correo es inválida");
 		  console.log(errorCode);
 		  console.log(errorMessage);
 
@@ -104,6 +106,7 @@ signIn : (email, password) => {
 	  // Handle Errors here.
 	  let errorCode = error.code;
 	  let errorMessage = error.message;
+		document.getElementById("notificationARIA").innerHTML=("El usuario o la contraseña son erróneos");
 	  console.log(errorCode);
 	  console.log(errorMessage);
 	});
@@ -113,6 +116,7 @@ signOutFunction : () => {
 	firebase.auth().signOut().then(function() {
 		// Sign-out successful.
 	  }).catch(function(error) {
+			document.getElementById("notificationARIA").innerHTML=("Sucedió un error al intentar cerrar la sesión, por favor vuelve a intentarlo");
 		// An error happened.
 	});
 },
