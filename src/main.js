@@ -9,11 +9,7 @@ let name = document.getElementById("enterName");
 let post = document.getElementById("timelinePost");
 
 
-let createPostFunction = () => {
-	console.log("in: main.js createPostFunction")
-	let message = post.value;
-	window.data.createPost(message)
-}
+
 
 let signIn = () => {
 	console.log("in: main.js signIn")
@@ -82,4 +78,3 @@ ui.start('#authContainer', uiConfig);
 document.getElementById("buttonSignIn").addEventListener("click", signIn);
 document.getElementById("createAcount").addEventListener("click", createAcountFunction);
 document.getElementById("buttonRegister").addEventListener("click", createUser);
-document.getElementById("buttonForCreatePost").addEventListener("click", createPostFunction);

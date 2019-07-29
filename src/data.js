@@ -80,16 +80,21 @@ window.data = {
 		location.assign("muro.html");
 	},
 
-	createPost : (message) => {
+	createPost : (message, uid) => {
+		
 		uid = firebase.auth().currentUser.uid;
-		console.log("in: data.js createPost")
+		console.log(uid)
 		let db = firebase.firestore();
 		// Add a second document with a generated ID.
 		db.collection("users").doc(uid).collection("posts").add({
-			"message" : message
+			"message" : message,
+			"uid" : uid
 		})
 		.then((docRef) => {
 			console.log("Document written with ID: ", docRef.id);
+			const data = doc.data();
+			document.write( data.message + "<br>")
+			document.write( data.date)
 		})
 		.catch((error) => {
 			console.error("Error adding document: ", error);
