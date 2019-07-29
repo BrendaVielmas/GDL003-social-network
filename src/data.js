@@ -11,7 +11,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 firebase.auth().onAuthStateChanged(function(user) {
-	if (user) {
+	console.log("in: data.js onAuthStateChanged");
+	if (user && user.emailVerified) {
 		 console.log(user.emailVerified);
 		 console.log("usuario conectado");
 		 console.log(user);
@@ -39,86 +40,92 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 window.data = {
 
-	validation : () =>{
-		let user = firebase.auth().currentUser;
-	  user.sendEmailVerification().then(function() {
-	  console.log("Enviando correo electrónico");
-	  // Email sent.
-	  }).catch(function(error) {
-		document.getElementById("notificationARIA").innerHTML=("Error de verificación");
-	  console.log("Error de verificación");
-	  // An error happened.
-	  });
+	acountValidation : (user) =>{
+		console.log("in: data.js acountValidation")
+		user.sendEmailVerification().then(() => {
+			console.log("Enviando correo electrónico");
+			// Email sent.
+		}).catch((error) => {
+			console.log("Error de verificación");
+			// An error happened.
+	  	});
 	},
 
-	createUser : (email, password) => {
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-	  .then((user) => {
-			window.data.validation()
-	})
-		.catch(function(error) {
-		  // Handle Errors here.
-		  let errorCode = error.code;
-		  let errorMessage = error.message;
-			document.getElementById("notificationARIA").innerHTML=("La dirección de correo es inválida");
-		  console.log(errorCode);
-		  console.log(errorMessage);
-
+	createUser : (email, password, name) => {
+		console.log("in: data.js createUser")
+		firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+			user = firebase.auth().currentUser;
+			window.data.acountValidation(user)
+		}).then(() => {
+		    user.updateProfile({
+		      displayName: name,
+		      photoURL: "images/profilePhoto.jpg"
+		    }).then(() => {
+		    	// User updated
+		    })
+		    .catch((error) => {
+				console.log(error.message);
+			});
+		}).catch((error) => {
+			// Handle Errors here.
+			let errorCode = error.code;
+			let errorMessage = error.message;
+			console.log(errorCode);
+			console.log(errorMessage);
 		});
 	},
 
 	goTimeLine : ()=> {
+		console.log("in: data.js goTimeLine")
 		location.assign("muro.html");
 	},
 
-
-createDataOfUsers : (name, username) => {
-	let db = firebase.firestore();
-	// Add a second document with a generated ID.
-	db.collection("Users").add({
-		"name" : name,
-		"username" : username,
-		"post" : post
-	})
-	.then(function(docRef) {
-		console.log("Document written with ID: ", docRef.id);
-	})
-	.catch(function(error) {
-		console.error("Error adding document: ", error);
-	});
-	db.collection("Users").get().then((querySnapshot) => {
-		querySnapshot.forEach((doc) => {
-				console.log(`${doc.id} => ${doc.data()}`);
+	createPost : (message) => {
+		uid = firebase.auth().currentUser.uid;
+		console.log("in: data.js createPost")
+		let db = firebase.firestore();
+		// Add a second document with a generated ID.
+		db.collection("users").doc(uid).collection("posts").add({
+			"message" : message
+		})
+		.then((docRef) => {
+			console.log("Document written with ID: ", docRef.id);
+		})
+		.catch((error) => {
+			console.error("Error adding document: ", error);
 		});
-	});
-},
+		db.collection("users").get().then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+					console.log(`${doc.id} => ${doc.data()}`);
+			});
+		});
+	},
 
-signIn : (email, password) => {
-	firebase.auth().signInWithEmailAndPassword(email, password)
-  .then((user) => {
-		console.log(user);
-		console.log("usuario activo");
-		if(user.user.emailVerified){
-			window.data.goTimeLine()
-		}
-	})
-	.catch(function(error) {
-	  // Handle Errors here.
-	  let errorCode = error.code;
-	  let errorMessage = error.message;
-		document.getElementById("notificationARIA").innerHTML=("El usuario o la contraseña son erróneos");
-	  console.log(errorCode);
-	  console.log(errorMessage);
-	});
-},
+	signIn : (email, password) => {
+		console.log("in: data.js signIn")
+		firebase.auth().signInWithEmailAndPassword(email, password)
+		.then((user) => {
+			console.log(user);
+			console.log("usuario activo");
+			if(user.user.emailVerified){
+				window.data.goTimeLine()
+			}
+		})
+		.catch((error) => {
+			// Handle Errors here.
+			let errorCode = error.code;
+			let errorMessage = error.message;
+			console.log(errorCode);
+			console.log(errorMessage);
+		});
+	},
 
-signOutFunction : () => {
-	firebase.auth().signOut().then(function() {
-		// Sign-out successful.
-	  }).catch(function(error) {
-			document.getElementById("notificationARIA").innerHTML=("Sucedió un error al intentar cerrar la sesión, por favor vuelve a intentarlo");
-		// An error happened.
-	});
-},
-
+	signOutFunction : () => {
+		console.log("in: data.js signOutFunction")
+		firebase.auth().signOut().then(() => {
+			// Sign-out successful.
+		}).catch((error) => {
+			// An error happened.
+		});
+	},
 }

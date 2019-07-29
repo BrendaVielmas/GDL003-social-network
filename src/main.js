@@ -1,36 +1,47 @@
+document.getElementById("alertForVerification").style.display ="none";
+
 const logInPage = document.getElementById("logInPage");
 const signInPage =document.getElementById("signInPage");
 const timeLine = document.getElementById("timeLine");
-
 
 let username = document.getElementById("enterUsername");
 let name = document.getElementById("enterName");
 let post = document.getElementById("timelinePost");
 
+
 let createPostFunction = () => {
-	post = document.getElementById("timelinePost").value;
+	console.log("in: main.js createPostFunction")
+	let message = post.value;
+	window.data.createPost(message)
 }
 
 let signIn = () => {
+	console.log("in: main.js signIn")
 	let email = document.getElementById("userEmail").value;
 	let password = document.getElementById("userPassword").value;
 	window.data.signIn(email, password)
+	
 };
 
 let createAcountFunction = () => {
-	logInPage.style.display= "none";
+	console.log("in: main.js createAcountFunction")
+	logInPage.style.display = "none";
 	signInPage.style.display = "block";
 };
 
 let createUser = () => {
+	console.log("in: main.js createUser")
 	let email = document.getElementById("enterEmail").value;
 	let password = document.getElementById("enterPassword").value;
-	window.data.createUser(email, password);
-  signInPage.style.display= "none";
+	let name = document.getElementById("enterName").value;
+	window.data.createUser(email, password, name);
+  	signInPage.style.display= "none";
 	logInPage.style.display = "block";
+	document.getElementById("alertForVerification").style.display ="block";	
 };
 
 const signOutFunction= () => {
+	console.log("in: main.js signOutFunction")
 	window.data.signOutFunction()
 	timeLine.style.display= "none";
 	userInformationInTimeline.style.display="none";
@@ -40,12 +51,14 @@ const signOutFunction= () => {
 let uiConfig = {
  callbacks: {
    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+   	console.log("in: main.js signInSuccessWithAuthResult")
      // User successfully signed in.
      // Return type determines whether we continue the redirect automatically
      // or whether we leave that to developer to handle.
      return true;
    },
    uiShown: function() {
+   	console.log("in: main.js uiShown")
      // The widget is rendered.
      // Hide the loader.
    }
@@ -69,3 +82,4 @@ ui.start('#authContainer', uiConfig);
 document.getElementById("buttonSignIn").addEventListener("click", signIn);
 document.getElementById("createAcount").addEventListener("click", createAcountFunction);
 document.getElementById("buttonRegister").addEventListener("click", createUser);
+document.getElementById("buttonForCreatePost").addEventListener("click", createPostFunction);

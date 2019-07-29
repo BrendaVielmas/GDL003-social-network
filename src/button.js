@@ -1,4 +1,5 @@
 const signOutButton= () => {
+	console.log("in: button.js signOutButton")
 	window.data.signOutFunction()
 	location.assign("index.html");
 };
