@@ -1,4 +1,4 @@
-# **Creando una Red Social**
+# **Open: Creando una Red Social Accesible**
 
 En este nuevo proyecto el reto es crear una red social en la que podamos **leer y escribir datos.**
 Y en dónde:
@@ -12,6 +12,24 @@ Y en dónde:
  _feedback_ constante.
 * Definir como crear la estructura de nuestra propia data y de qué forma mostrarla en
  el producto.
+
+Elegimos atender el problema de accesibilidad, y orientar los esfuerzos de este proyecto al desarrollo de una red social para personas con daltonismo y debilidad visual.
+
+# **¿Cómo desarrollar tecnologías accesibles?**
+
+Nos basamos en el Web Content Accesibility Guideliness (WACG), que es una guía desarrollada por el Web Accesibility Initiative (WAI), el cual a su vez es un grupo de trabajo dentro del W3C (World Wide Web Consortium).
+
+La WACG se revisa constantemente, en la actualidad está vigente la versión 2.1.
+
+La guía WACG indica que, para ser accesibles, los contenidos web deben ser:
+
+  * PERCEPTIBLES
+  * OPERABLES,
+  * ENTENDIBLES,
+  * ROBUSTOS.
+
+El documento que hemos creado se puede consultar en https://github.com/PaulinaFranco/GDL003-social-network/wiki/Gu%C3%ADa-de-accesibilidad-para-la-red-social-Open
+
 
 ## **Preámbulo**
 
@@ -28,6 +46,7 @@ Con la información anterior decidimos abordar la problemática creando una red 
 Lo primero que hicimos fue buscar usuarios con estas características y por medio de una encuesta les pedimos más información acerca de su uso de redes sociales y las problemáticas que abordan, así como su opinión acerca de qué mejoraría su experiencia.
 
 ![encuestaVictor1](https://i.ibb.co/RBqHcWF/encuestas-V.png)
+
 
 Después buscamos documentarnos en accesibilidad para que nuestra red social realmente fuera para daltónicos y débiles visuales y cómo hacer esto posible.
 
