@@ -9,7 +9,6 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
 firebase.auth().onAuthStateChanged(function(user) {
 	console.log("in: data.js onAuthStateChanged");
 	if (user && user.emailVerified) {
@@ -80,29 +79,20 @@ window.data = {
 		location.assign("muro.html");
 	},
 
-	createPost : (message, uid) => {
-		
+	createPost : (message) => {
 		uid = firebase.auth().currentUser.uid;
-		console.log(uid)
+		console.log("in data.js createPost");
 		let db = firebase.firestore();
 		// Add a second document with a generated ID.
-		db.collection("users").doc(uid).collection("posts").add({
+		db.collection("Users").add({
 			"message" : message,
 			"uid" : uid
 		})
 		.then((docRef) => {
 			console.log("Document written with ID: ", docRef.id);
-			const data = doc.data();
-			document.write( data.message + "<br>")
-			document.write( data.date)
 		})
 		.catch((error) => {
 			console.error("Error adding document: ", error);
-		});
-		db.collection("users").get().then((querySnapshot) => {
-			querySnapshot.forEach((doc) => {
-					console.log(`${doc.id} => ${doc.data()}`);
-			});
 		});
 	},
 
