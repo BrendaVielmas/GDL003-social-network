@@ -1,26 +1,17 @@
 let post = document.getElementById("timelinePost");
+
 const db = firebase.firestore()
 db.collection("Users").get().then((querySnapshot) => {
 	querySnapshot.forEach((doc) => {
 			console.log(doc.data());
+			let x = doc.data();
+			document.getElementById("sectionWithPost").innerHTML += `
+			<section class = "timelineWithPosts"> 
+			<p>Fecha: ${x.date}</p>
+			<p>Estado: ${x.message}</p>
+			</section>`;
 	});
 });
-
-/*const showPostsInTimeLine = () => {	
-	var docRef = db.collection("cities").doc("SF");
-	docRef.get().then(function(doc) {
-		if (doc.exists) {
-			console.log("Document data:", doc.data());
-		} else {
-			// doc.data() will be undefined in this case
-			console.log("No such document!");
-		}
-	}).catch(function(error) {
-		console.log("Error getting document:", error);
-	});
-	
-};*/
-
 
 const signOutButton= () => {
 	console.log("in: button.js signOutButton")
@@ -28,12 +19,13 @@ const signOutButton= () => {
 	location.assign("index.html");
 };
 
-let createPostFunction = () => {
-	console.log("in: main.js createPostFunction");
+let createPostFunction = (docRef) => {
+	let status = document.querySelector("[type=radio]:checked").value;
+	console.log("in: button.js createPostFunction");
 	let message = post.value;
-	window.data.createPost(message);
+	window.data.createPost(message, status);
+	
 };
 
 document.getElementById("signOut").addEventListener("click", signOutButton);
 document.getElementById("buttonForCreatePost").addEventListener("click", createPostFunction);
-//document.getElementById("buttonForCreatePost").addEventListener("click", showPostsInTimeLine);
