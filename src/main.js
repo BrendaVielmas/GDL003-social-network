@@ -8,9 +8,6 @@ let username = document.getElementById("enterUsername");
 let name = document.getElementById("enterName");
 let post = document.getElementById("timelinePost");
 
-
-
-
 let signIn = () => {
 	console.log("in: main.js signIn")
 	let email = document.getElementById("userEmail").value;

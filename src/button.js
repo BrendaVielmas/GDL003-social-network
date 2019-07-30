@@ -4,11 +4,13 @@ const db = firebase.firestore()
 db.collection("Users").get().then((querySnapshot) => {
 	querySnapshot.forEach((doc) => {
 			console.log(doc.data());
-			let x = doc.data();
+			let postOfUser = doc.data();
 			document.getElementById("sectionWithPost").innerHTML += `
-			<section class = "timelineWithPosts"> 
-			<p>Fecha: ${x.date}</p>
-			<p>Estado: ${x.message}</p>
+			<section  class = "postInBox"> 
+			<p>Fecha: ${postOfUser.date}</p>
+			<p>Estado: ${postOfUser.message}</p>
+			<button class="button" id="buttonForEditpost">Editar</button>
+			<button class="button" id="buttonForDeletePost">Eliminar</button>
 			</section>`;
 	});
 });
