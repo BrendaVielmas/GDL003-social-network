@@ -79,7 +79,7 @@ window.data = {
 		location.assign("muro.html");
 	},
 
-	createPost : (message, status) => {
+	createPost : (message, status, name, date) => {
 		uid = firebase.auth().currentUser.uid;
 		console.log("in data.js createPost");
 		let db = firebase.firestore();
@@ -87,7 +87,9 @@ window.data = {
 		db.collection("Users").add({
 			"message" : message,
 			"uid" : uid,
-			"status" : status
+			"status" : status,
+			"date" : date,
+			"name": name
 		})
 		.then((docRef) => {
 			console.log("Document written with ID: ", docRef.id);

@@ -22,11 +22,12 @@ const signOutButton= () => {
 };
 
 let createPostFunction = (docRef) => {
-	let status = document.querySelector("[type=radio]:checked").value;
 	console.log("in: button.js createPostFunction");
+	//let name = displayname;
+	let status = document.querySelector("[type=radio]:checked").value;
 	let message = post.value;
-	window.data.createPost(message, status);
-	
+	let date = new Date();
+	window.data.createPost(message, status, name, date);
 };
 
 document.getElementById("signOut").addEventListener("click", signOutButton);
