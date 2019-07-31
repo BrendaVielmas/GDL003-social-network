@@ -79,7 +79,9 @@ window.data = {
 		location.assign("muro.html");
 	},
 
+
 	createPost : (message, status, dates, likesFunction) => {
+
 		uid = firebase.auth().currentUser.uid;
 		console.log("in data.js createPost");
 		let db = firebase.firestore();
@@ -87,6 +89,7 @@ window.data = {
 		db.collection("Users").add({
 			"message" : message,
 			"uid" : uid,
+
 			"dates" : dates,
 			"status" : status,
 			"likes" : 0
@@ -130,5 +133,12 @@ window.data = {
 		}).catch((error) => {
 			// An error happened.
 		});
+	},
+	deleteFunction : (idOfPost) => {
+		db.collection("Users").doc(idOfPost).delete().then(function() {
+			console.log("Document successfully deleted!");
+	}).catch(function(error) {
+			console.error("Error removing document: ", error);
+	});
 	},
 }
