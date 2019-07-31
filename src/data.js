@@ -126,4 +126,11 @@ window.data = {
 			// An error happened.
 		});
 	},
+	deleteFunction : (idOfPost) => {
+		db.collection("Users").doc(idOfPost).delete().then(function() {
+			console.log("Document successfully deleted!");
+	}).catch(function(error) {
+			console.error("Error removing document: ", error);
+	});
+	},
 }
