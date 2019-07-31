@@ -1,4 +1,5 @@
 let post = document.getElementById("timelinePost");
+
 let nameInProfile = document.getElementById("profile");
 const db = firebase.firestore()
 
@@ -47,9 +48,10 @@ const deleteButton = () => {
 	confirm("¿Estás seguro que deseas eliminar esta publicación?");
 	window.data.deleteFunction(idOfPost);
 };
+
 const signOutButton= () => {
-	console.log("in: button.js signOutButton")
-	window.data.signOutFunction()
+	console.log("in: button.js signOutButton");
+	window.data.signOutFunction();
 	location.assign("index.html");
 };
 
@@ -59,10 +61,19 @@ const createPostFunction = (docRef) => {
 	// console.log(name);
 	let status = document.querySelector("[type=radio]:checked").value;
 	let message = post.value;
-	let actualDate = new Date();
-	let date = actualDate.getDate() + "/" + (actualDate.getMonth() +1) + "/" + actualDate.getFullYear() + " ";
-	window.data.createPost(message, status, name, date);
+
+
+	let day = new Date().toLocaleDateString();
+	let hour = new Date().toLocaleTimeString();
+
+	let dates = " ";
+		dates = day + " " + hour;
+		console.log(dates);
+
+	window.data.createPost(message, status, dates);
+
 };
+
 
 document.getElementById("signOut").addEventListener("click", signOutButton);
 document.getElementById("buttonForCreatePost").addEventListener("click", createPostFunction);

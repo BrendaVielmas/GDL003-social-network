@@ -3,7 +3,7 @@
         text-align: center;
         column-count: auto;
       }
-      
+
       .principalLogo {
         width: 12rem;
         height: 8rem;
@@ -12,17 +12,17 @@
         margin-left: auto;
         margin-right: auto;
       }
-      
+
        #signInPage {
           display : none;
       }
-      
+
       p {
           text-align: center;
           font-size: 18pt;
           margin: auto;
       }
-      
+
       .input {
           width: 15rem;
           height: 2rem;
@@ -31,7 +31,7 @@
           font-size: 20pt;
           margin-left: auto;
           margin-right: auto;
-          
+
       }
       .button, .buttonDelete, .buttonEdit {
           height: 3rem;
@@ -64,9 +64,10 @@
         display: flex;
         margin-left: auto;
         margin-right: auto;
-      
+
       }
-/*tablets*/
+
 @media screen and (min-width: 481px) and (max-width: 780px) {}
 /*escritorio normal*/
 @media (min-width: 1024px) {}
+
