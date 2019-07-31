@@ -79,7 +79,7 @@ window.data = {
 		location.assign("muro.html");
 	},
 
-	createPost : (message, status) => {
+	createPost : (message, status, dates, likesFunction) => {
 		uid = firebase.auth().currentUser.uid;
 		console.log("in data.js createPost");
 		let db = firebase.firestore();
@@ -87,7 +87,10 @@ window.data = {
 		db.collection("Users").add({
 			"message" : message,
 			"uid" : uid,
-			"status" : status
+			"dates" : dates,
+			"status" : status,
+			"likes" : 0
+
 		})
 		.then((docRef) => {
 			console.log("Document written with ID: ", docRef.id);
@@ -96,6 +99,10 @@ window.data = {
 			console.error("Error adding document: ", error);
 		});
 	},
+
+/*	deletePost : () => {
+		db.collection("Users").doc(docRef.id).delete();
+	}, */
 
 	signIn : (email, password) => {
 		console.log("in: data.js signIn")

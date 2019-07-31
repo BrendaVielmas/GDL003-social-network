@@ -8,12 +8,13 @@ let username = document.getElementById("enterUsername");
 let name = document.getElementById("enterName");
 let post = document.getElementById("timelinePost");
 
+
 let signIn = () => {
 	console.log("in: main.js signIn")
 	let email = document.getElementById("userEmail").value;
 	let password = document.getElementById("userPassword").value;
 	window.data.signIn(email, password)
-	
+
 };
 
 let createAcountFunction = () => {
@@ -30,7 +31,7 @@ let createUser = () => {
 	window.data.createUser(email, password, name);
   	signInPage.style.display= "none";
 	logInPage.style.display = "block";
-	document.getElementById("alertForVerification").style.display ="block";	
+	document.getElementById("alertForVerification").style.display ="block";
 };
 
 const signOutFunction= () => {
