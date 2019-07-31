@@ -1,21 +1,29 @@
 const homePage = document.getElementById("homePage");
-const profilePage = document.getElementById("timeLine");
-let post = document.getElementById("timelinePost");
+const profilePage = document.getElementById("timeLine")
+const post = document.querySelector(".post");
+const postProfile = document.getElementById("timelinePostPerfil");
 
-const db = firebase.firestore()
-db.collection("Users").get().then((querySnapshot) => {
-	querySnapshot.forEach((doc) => {
-			console.log(doc.data());
-			let postOfUser = doc.data();
-			document.getElementById("sectionWithPost").innerHTML += `
-			<section  class = "postInBox">
-			<p>Fecha: ${postOfUser.date}</p>
-			<p>Estado: ${postOfUser.message}</p>
-			<button class="button" id="buttonForEditpost">Editar</button>
-			<button class="button" id="buttonForDeletePost">Eliminar</button>
-			</section>`;
-	});
-});
+
+let db = firebase.firestore()
+		db.collection("Users").where("status", "==", "Publico")
+		.onSnapshot((mnsj) =>{
+
+		document.getElementById("sectionWithPost").innerHTML = "";
+
+		mnsj.forEach((doc) => {
+						// doc.data() is never undefined for query doc snapshots
+						console.log(doc.id, " => ", doc.data());
+
+						let postOfUser = doc.data();
+						document.getElementById("sectionWithPost").innerHTML += `
+						<section  class = "postInBox">
+						<p>Fecha: ${postOfUser.date}</p>
+						<p>Estado: ${postOfUser.message}</p>
+						<button class="button" id="buttonForEditpost">Editar</button>
+						<button class="button" id="buttonForDeletePost">Eliminar</button>
+						</section>`;
+					});
+		});
 
 const signOutButton= () => {
 	console.log("in: button.js signOutButton")
@@ -37,5 +45,6 @@ profilePage.style.display= "block";
 };
 
 document.getElementById("signOut").addEventListener("click", signOutButton);
-document.getElementById("buttonForCreatePost").addEventListener("click", createPostFunction);
+document.querySelector(".btnToPost").addEventListener("click", createPostFunction);
+document.getElementById("buttonForCreatePostPerfil").addEventListener("click", createPostFunction);
 document.getElementById("goProfilePage").addEventListener("click", goToProfilePage);
