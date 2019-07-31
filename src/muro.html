@@ -10,12 +10,23 @@
   <body>
     <header><img class="principalLogo" src="images/principalLogo.jpg"></header>
 
+    <button class="button"  id="signOut">Sign Out</button>
+
     <main>
+      <section id="homePage">
+        <button class="button"  id="goProfilePage">Profile</button>
+        <p id="homePageWelcome">Bienvenido a Open!!! mira lo que comparte la comunidad!!!<p>
+        <textArea id= "timelinePost" type="textArea" rows= "6"  cols= "70" placeholder= "¿Cómo te sientes?"></textarea>
+        <section id="selectTheStatus">
+          <label><input type="radio" name="radioForStatus" value="Publico">Público</label>
+          <label><input type="radio" name="radioForStatus" value="Privado">Privado</label>
+        </section>
+        <button class="button" id="buttonForCreatePost">Publicar</button>
+        <section id="sectionWithPost"></section>
+      </section>
+
       <section id="timeLine">
-        <button class="button"  id="signOut">Sign Out</button>
-        <p id=boxForNameInformation></p>
-        <p id=boxForUsernameInformation></p>
-        <p id= "bienvenida">ESTO SOLO LO VES TÚ</p>
+        <p id= "profileWelcome">ESTO SOLO LO VES TÚ</p>
         <div id= "profile"></div>
         <textArea id= "timelinePost" type="textArea" rows= "6"  cols= "70" placeholder= "¿Cómo te sientes?"></textarea>
         <section id="selectTheStatus">
@@ -23,8 +34,7 @@
           <label><input type="radio" name="radioForStatus" value="Privado">Privado</label>
         </section>
         <button class="button" id="buttonForCreatePost">Publicar</button>
-        <section id="sectionWithPost"> 
-        </section>
+        <section id="sectionWithUidPost"></section>
       </section>
     </main>
 
