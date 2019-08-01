@@ -1,7 +1,6 @@
 const homePage = document.getElementById("homePage");
 const profilePage = document.getElementById("timeLine")
-const post = document.querySelector(".post");
-// let post = document.getElementById("timelinePost");
+const post = document.getElementById("timelinePost");
 const postProfile = document.getElementById("timelinePostPerfil");
 let nameInProfile = document.getElementById("profile");
 
@@ -58,6 +57,21 @@ const createPostFunction = (docRef) => {
 
 };
 
+const createPostFunctionProfile = (docRef) => {
+	console.log("in: button.js createPostFunction");
+	// let name = nameInProfile.value;
+	// console.log(name);
+	let status = document.querySelector("[type=radio]:checked").value;
+	let message = postProfile.value;
+	let day = new Date().toLocaleDateString();
+	let hour = new Date().toLocaleTimeString();
+	let dates = " ";
+		dates = day + " " + hour;
+		console.log(dates);
+	window.data.createPost(message, status, dates);
+
+};
+
 const goToProfilePage= ()=>{
 homePage.style.display= "none";
 profilePage.style.display= "block";
@@ -65,5 +79,5 @@ profilePage.style.display= "block";
 
 document.getElementById("signOut").addEventListener("click", signOutButton);
 document.querySelector(".btnToPost").addEventListener("click", createPostFunction);
-document.getElementById("buttonForCreatePostPerfil").addEventListener("click", createPostFunction);
+document.getElementById("buttonForCreatePostPerfil").addEventListener("click", createPostFunctionProfile);
 document.getElementById("goProfilePage").addEventListener("click", goToProfilePage);
