@@ -1,8 +1,10 @@
+
 const homePage = document.getElementById("homePage");
 const profilePage = document.getElementById("timeLine")
 const post = document.querySelector(".post");
+// let post = document.getElementById("timelinePost");
 const postProfile = document.getElementById("timelinePostPerfil");
-
+let nameInProfile = document.getElementById("profile");
 
 let db = firebase.firestore()
 		db.collection("Users").where("status", "==", "Publico")
@@ -21,21 +23,39 @@ let db = firebase.firestore()
 						<p>Estado: ${postOfUser.message}</p>
 						<button class="button" id="buttonForEditpost">Editar</button>
 						<button class="button" id="buttonForDeletePost">Eliminar</button>
-						</section>`;
+						</section>`
+            	let buttons = document.getElementsByClassName("buttonDelete");
+						for (let i = 0; i < buttons.length; i++) {
+							buttons[i].addEventListener("click", deleteButton);
+            }
 					});
-		});
+		})
+
+const deleteButton = () => {
+	// messageToDelete =
+	let idOfPost = event.target.id;
+	confirm("¿Estás seguro que deseas eliminar esta publicación?");
+	window.data.deleteFunction(idOfPost);
+};
 
 const signOutButton= () => {
-	console.log("in: button.js signOutButton")
-	window.data.signOutFunction()
+	console.log("in: button.js signOutButton");
+	window.data.signOutFunction();
 	location.assign("index.html");
 };
 
-let createPostFunction = (docRef) => {
-	let status = document.querySelector("[type=radio]:checked").value;
+const createPostFunction = (docRef) => {
 	console.log("in: button.js createPostFunction");
+	// let name = nameInProfile.value;
+	// console.log(name);
+	let status = document.querySelector("[type=radio]:checked").value;
 	let message = post.value;
-	window.data.createPost(message, status);
+	let day = new Date().toLocaleDateString();
+	let hour = new Date().toLocaleTimeString();
+	let dates = " ";
+		dates = day + " " + hour;
+		console.log(dates);
+	window.data.createPost(message, status, dates);
 
 };
 
