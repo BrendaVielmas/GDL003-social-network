@@ -10,6 +10,7 @@ let db = firebase.firestore()
 		document.getElementById("sectionWithPost").innerHTML = "";
 
 		mnsj.forEach((doc) => {
+    if(doc.data().uid === uid ){
 						// doc.data() is never undefined for query doc snapshots
 						console.log(doc.id, " => ", doc.data());
 
@@ -29,8 +30,24 @@ let db = firebase.firestore()
 						  for (let i = 0; i < buttons.length; i++) {
 							buttons[i].addEventListener("click", deleteButton);
             }
+					}
+					 else {
+						 console.log(doc.id, " => ", doc.data());
+
+ 						let postOfUser = doc.data();
+ 						document.getElementById("sectionWithPost").innerHTML += `
+ 						<section  class = "postInBox">
+ 						<p>Fecha: ${postOfUser.dates}</p>
+ 						<p>Estado: ${postOfUser.message}</p>
+ 						</section>
+ 						<section id="buttonForLike">
+ 				    <button > &#x1F49B;  </button>
+ 			    	<p>Me gusta ${postOfUser.likes}</p>
+ 			      </section>`
+
+             }
 					});
-		})
+		});
 
 
 				let uid = localStorage.getItem("uid");
@@ -119,7 +136,13 @@ homePage.style.display= "none";
 profilePage.style.display= "block";
 };
 
+const goToHomePage = () =>{
+	homePage.style.display= "block";
+	profilePage.style.display= "none";
+}
+
 document.getElementById("signOut").addEventListener("click", signOutButton);
-document.querySelector(".btnToPost").addEventListener("click", createPostFunction);
+document.getElementById("buttonForCreatePost").addEventListener("click", createPostFunction);
 document.getElementById("buttonForCreatePostPerfil").addEventListener("click", createPostFunctionProfile);
 document.getElementById("goProfilePage").addEventListener("click", goToProfilePage);
+document.getElementById("goHomePage").addEventListener("click", goToHomePage);
