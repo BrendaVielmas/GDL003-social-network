@@ -1,4 +1,3 @@
-
 const homePage = document.getElementById("homePage");
 const profilePage = document.getElementById("timeLine")
 const post = document.querySelector(".post");
@@ -21,11 +20,11 @@ let db = firebase.firestore()
 						<section  class = "postInBox">
 						<p>Fecha: ${postOfUser.date}</p>
 						<p>Estado: ${postOfUser.message}</p>
-						<button class="button" id="buttonForEditpost">Editar</button>
-						<button class="button" id="buttonForDeletePost">Eliminar</button>
+						<button class="buttonEdit" id="buttonForEditpost">Editar</button>
+							<button class="buttonDelete" id="${doc.id}">Eliminar</button>
 						</section>`
             	let buttons = document.getElementsByClassName("buttonDelete");
-						for (let i = 0; i < buttons.length; i++) {
+						  for (let i = 0; i < buttons.length; i++) {
 							buttons[i].addEventListener("click", deleteButton);
             }
 					});
