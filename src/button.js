@@ -7,7 +7,6 @@ let nameInProfile = document.getElementById("profile");
 let db = firebase.firestore()
 		db.collection("Users").where("status", "==", "Publico")
 		.onSnapshot((mnsj) =>{
-
 		document.getElementById("sectionWithPost").innerHTML = "";
 
 		mnsj.forEach((doc) => {
@@ -32,6 +31,45 @@ let db = firebase.firestore()
             }
 					});
 		})
+
+
+				let uid = localStorage.getItem("uid");
+				console.log(uid);
+
+				let dbUid = firebase.firestore()
+				    dbUid.collection("Users")
+					  .onSnapshot((mnsj) =>{
+						document.getElementById("sectionWithUidPost").innerHTML = "";
+
+						mnsj.forEach((doc) => {
+							if(doc.data().uid === uid ){
+												// doc.data() is never undefined for query doc snapshots
+												console.log(doc.id, " => ", doc.data());
+
+												let postOfUser = doc.data();
+												document.getElementById("sectionWithUidPost").innerHTML += `
+												<section  class = "postInBox">
+												<p>Fecha: ${postOfUser.dates}</p>
+												<p>Estado: ${postOfUser.message}</p>
+												<button class="buttonEdit" id="buttonForEditpost">Editar</button>
+													<button class="buttonDelete" id="${doc.id}">Eliminar</button>
+												</section>
+												<section id="buttonForLike">
+										    <button > &#x1F49B;  </button>
+									    	<p>Me gusta ${postOfUser.likes}</p>
+									      </section>`
+						            	let buttons = document.getElementsByClassName("buttonDelete");
+												  for (let i = 0; i < buttons.length; i++) {
+													buttons[i].addEventListener("click", deleteButton);
+						            }
+							}
+						})
+					});
+
+
+
+
+
 
 const deleteButton = () => {
 	// messageToDelete =
