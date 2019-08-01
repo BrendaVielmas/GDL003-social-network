@@ -18,6 +18,7 @@ let db = firebase.firestore()
 						document.getElementById("sectionWithPost").innerHTML += `
 						<section  class = "postInBox">
 						<p>Fecha: ${postOfUser.dates}</p>
+						<p>Nombre: ${postOfUser.name}</p>
 						<p>Estado: ${postOfUser.message}</p>
 						<button class="buttonEdit" id="buttonForEditpost">Editar</button>
 							<button class="buttonDelete" id="${doc.id}">Eliminar</button>
@@ -38,6 +39,7 @@ let db = firebase.firestore()
  						document.getElementById("sectionWithPost").innerHTML += `
  						<section  class = "postInBox">
  						<p>Fecha: ${postOfUser.dates}</p>
+						<p>Nombre: ${postOfUser.name}</p>
  						<p>Estado: ${postOfUser.message}</p>
  						</section>
  						<section id="buttonForLike">
@@ -67,6 +69,7 @@ let db = firebase.firestore()
 												document.getElementById("sectionWithUidPost").innerHTML += `
 												<section  class = "postInBox">
 												<p>Fecha: ${postOfUser.dates}</p>
+												<p>Nombre: ${postOfUser.name}</p>
 												<p>Estado: ${postOfUser.message}</p>
 												<button class="buttonEdit" id="buttonForEditpost">Editar</button>
 													<button class="buttonDelete" id="${doc.id}">Eliminar</button>
@@ -82,11 +85,6 @@ let db = firebase.firestore()
 							}
 						})
 					});
-
-
-
-
-
 
 const deleteButton = () => {
 	// messageToDelete =

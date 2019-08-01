@@ -83,7 +83,8 @@ window.data = {
 
 
 	createPost : (message, status, dates, likesFunction) => {
-
+    let name = localStorage.getItem("name");
+		console.log(name);
 		uid = firebase.auth().currentUser.uid;
 		console.log("in data.js createPost");
 		let db = firebase.firestore();
@@ -91,7 +92,7 @@ window.data = {
 		db.collection("Users").add({
 			"message" : message,
 			"uid" : uid,
-
+      "name" : name,
 			"dates" : dates,
 			"status" : status,
 			"likes" : 0
