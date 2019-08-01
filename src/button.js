@@ -21,7 +21,11 @@ let db = firebase.firestore()
 						<p>Estado: ${postOfUser.message}</p>
 						<button class="buttonEdit" id="buttonForEditpost">Editar</button>
 							<button class="buttonDelete" id="${doc.id}">Eliminar</button>
-						</section>`
+						</section>
+						<section id="buttonForLike">
+				    <button > &#x1F49B;  </button>
+			    	<p>Me gusta ${postOfUser.likes}</p>
+			      </section>`
             	let buttons = document.getElementsByClassName("buttonDelete");
 						  for (let i = 0; i < buttons.length; i++) {
 							buttons[i].addEventListener("click", deleteButton);
