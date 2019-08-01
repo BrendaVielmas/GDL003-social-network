@@ -17,7 +17,7 @@ let db = firebase.firestore()
 						let postOfUser = doc.data();
 						document.getElementById("sectionWithPost").innerHTML += `
 						<section  class = "postInBox">
-						<p>Fecha: ${postOfUser.date}</p>
+						<p>Fecha: ${postOfUser.dates}</p>
 						<p>Estado: ${postOfUser.message}</p>
 						<button class="buttonEdit" id="buttonForEditpost">Editar</button>
 							<button class="buttonDelete" id="${doc.id}">Eliminar</button>
