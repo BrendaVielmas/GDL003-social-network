@@ -15,6 +15,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 		 console.log(user.emailVerified);
 		 console.log("usuario conectado");
 		 console.log(user);
+     localStorage.setItem("name", user.displayName);
+		 localStorage.setItem("uid", user.uid);
 			// User is signed in.
 			let displayName = user.displayName;
 			let email = user.email;
