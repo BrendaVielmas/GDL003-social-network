@@ -138,10 +138,27 @@ window.data = {
 		});
 	},
 	deleteFunction : (idOfPost) => {
-		db.collection("Users").doc(idOfPost).delete().then(function() {
+		db.collection("Users").doc(idOfPost).delete().then(() => {
 			console.log("Document successfully deleted!");
 	}).catch(function(error) {
 			console.error("Error removing document: ", error);
 	});
 	},
+
+
+	editFunction : (idOfPost) => {
+
+		let postOfUser = event.target.id;
+		console.log(postOfUser);
+		let newPost = document.getElementById("editPostInput").value;
+
+		db.collection("Users").doc(postOfUser).set({
+
+			"message" : newPost
+		}, {merge: true}).then(() => {
+			console.log("Document successfully edit!");
+	}).catch(function(error) {
+			console.error("Error edit document: ", error);
+	});
+},
 }

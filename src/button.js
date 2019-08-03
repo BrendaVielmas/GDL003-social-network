@@ -31,7 +31,12 @@ let db = firebase.firestore()
 						  for (let i = 0; i < buttons.length; i++) {
 							buttons[i].addEventListener("click", deleteButton);
             }
-					}
+
+					//	let editbuttons = document.getElementsByClassName("buttonEdit");
+					//	for (let i = 0; i < buttons.length; i++) {
+					//	buttons[i].addEventListener("click", editButton);
+
+				}
 					 else {
 						 console.log(doc.id, " => ", doc.data());
 
@@ -66,25 +71,48 @@ let db = firebase.firestore()
 												console.log(doc.id, " => ", doc.data());
 
 												let postOfUser = doc.data();
+
 												document.getElementById("sectionWithUidPost").innerHTML += `
-												<section  class = "postInBox">
-												<p>Fecha: ${postOfUser.dates}</p>
-												<p>Nombre: ${postOfUser.name}</p>
-												<p>Estado: ${postOfUser.message}</p>
-												<button class="buttonEdit" id="buttonForEditpost">Editar</button>
-													<button class="buttonDelete" id="${doc.id}">Eliminar</button>
+												<section id = "inputEditPost">
+											  	<input class= "post" id= "editPostInput" type="textArea" size = "30" value = "${postOfUser.message}"></input>
+												  <button class= "saveButton" id="${doc.id}">Guardar</button>
+											  </section>
+												<section id="thisPost"  class = "postInBox">
+												  <p>Fecha: ${postOfUser.dates}</p>
+												  <p>Nombre: ${postOfUser.name}</p>
+											  	<p>Estado: ${postOfUser.message}</p>
+											  	<button class="buttonEdit" id="${doc.id}edit">Editar</button>
+													<button class="buttonDelete" id="${doc.id}delete">Eliminar</button>
 												</section>
 												<section id="buttonForLike">
-										    <button > &#x1F49B;  </button>
-									    	<p>Me gusta ${postOfUser.likes}</p>
+										      <button > &#x1F49B;  </button>
+									    	  <p>Me gusta ${postOfUser.likes}</p>
 									      </section>`
+
+                          let newPost = document.getElementById("editPostInput").value;
+
 						            	let buttons = document.getElementsByClassName("buttonDelete");
 												  for (let i = 0; i < buttons.length; i++) {
 													buttons[i].addEventListener("click", deleteButton);
-						            }
-							}
-						})
-					});
+                        };
+
+													let editbuttons = document.getElementsByClassName("buttonEdit");
+												  for (let i = 0; i < editbuttons.length; i++) {
+													editbuttons[i].addEventListener("click", () =>{
+														console.log("Di click");
+														document.getElementById("inputEditPost").style.display = "block";
+														document.getElementById("thisPost").style.display = "none";
+														document.getElementById("buttonForLike").style.display = "none";
+													});
+											  };
+													let savebuttons = document.getElementsByClassName("saveButton");
+													for (let i = 0; i < savebuttons.length; i++) {
+													savebuttons[i].addEventListener("click", editPost);
+												}
+								 		  };
+								  	});
+						  		});
+
 
 const deleteButton = () => {
 	// messageToDelete =
@@ -92,6 +120,14 @@ const deleteButton = () => {
 	confirm("¿Estás seguro que deseas eliminar esta publicación?");
 	window.data.deleteFunction(idOfPost);
 };
+
+
+const editPost = () => {
+	let idOfPost = event.target.id;
+	// messageToDelete =
+	window.data.editFunction(idOfPost);
+};
+
 
 const signOutButton= () => {
 	console.log("in: button.js signOutButton");
