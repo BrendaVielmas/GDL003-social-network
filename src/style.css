@@ -12,7 +12,7 @@
         margin-left: auto;
         margin-right: auto;
       }
-       #signInPage, #timeLine {
+       #signInPage, #timeLine, #inputEditPost {
 
           display : none;
       }
@@ -33,7 +33,7 @@
           margin-right: auto;
 
       }
-      .button, .buttonDelete, .buttonEdit {
+      .button, .buttonDelete, .buttonEdit, .saveButton {
           height: 3rem;
           text-align: center;
           display: flex;
@@ -71,4 +71,3 @@
 @media screen and (min-width: 481px) and (max-width: 780px) {}
 /*escritorio normal*/
 @media (min-width: 1024px) {}
-
