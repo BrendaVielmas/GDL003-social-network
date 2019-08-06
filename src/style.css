@@ -71,3 +71,14 @@
 @media screen and (min-width: 481px) and (max-width: 780px) {}
 /*escritorio normal*/
 @media (min-width: 1024px) {}
+
+
+  for= "heart"] {
+    color: #aab8c2;
+    font-size: 2em;
+    cursor: pointer;
+  }
+
+  [id='toggle-heart']:checked + label {
+    color: #e2264d;
+  }
