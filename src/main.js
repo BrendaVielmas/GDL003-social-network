@@ -25,18 +25,22 @@ let createAcountFunction = () => {
 
 let createUser = () => {
 	console.log("in: main.js createUser")
-	let email = document.getElementById("enterEmail").value;
-	let password = document.getElementById("enterPassword").value;
-	let name = document.getElementById("enterName").value;
+	let email = enterEmail.value;
+	let password = enterPassword.value;
+	let name = enterName.value;
+
 	window.data.createUser(email, password, name);
+
   	signInPage.style.display= "none";
 	logInPage.style.display = "block";
-	document.getElementById("alertForVerification").style.display ="block";
+	alertForVerification.style.display ="block";
 };
 
 const signOutFunction= () => {
 	console.log("in: main.js signOutFunction")
+
 	window.data.signOutFunction()
+	
 	timeLine.style.display= "none";
 	userInformationInTimeline.style.display="none";
 	logInPage.style.display= "block";
