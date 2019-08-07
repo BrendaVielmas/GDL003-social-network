@@ -12,26 +12,17 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged(function(user) {
   console.log("in: data.js onAuthStateChanged");
   if (user && user.emailVerified) {
-    console.log(user.emailVerified);
     console.log("usuario conectado");
     console.log(user);
     localStorage.setItem("name", user.displayName);
     localStorage.setItem("uid", user.uid);
-    // User is signed in.
-    let displayName = user.displayName;
-    let email = user.email;
-    let emailVerified = user.emailVerified;
-    let photoURL = user.photoURL;
-    let isAnonymous = user.isAnonymous;
-    let uid = user.uid;
-    let providerData = user.providerData;
-    const obj = {
-      name: user.displayName,
-      email: user.email,
-      photo: user.photoURL
-    }
-    document.getElementById("profile").innerHTML = obj.name + '<br>' + obj.email + '<br>' + `<img src=${obj.photo }>`;
-    // ...
+    //User is signed in.
+ const obj ={
+	name : user.displayName,
+	email : user.email,
+	photo : user.photoURL
+		}
+    document.getElementById("profile").innerHTML = user.displayName + '<br>' + user.email + '<br>' + `<img src=${user.photoURL }>`;
   } else {
     // User is signed out.
     console.log("usuario desconectado");
@@ -40,7 +31,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 window.data = {
-
+  
   acountValidation: (user) => {
     console.log("in: data.js acountValidation")
     user.sendEmailVerification().then(() => {
@@ -83,9 +74,12 @@ window.data = {
 
 
   createPost: (message, status, dates, likesFunction) => {
+  	if (message == "") {
+  		return "Error. El mensaje no puede estar vacío";
+	}
     let name = localStorage.getItem("name");
     console.log(name);
-    uid = firebase.auth().currentUser.uid;
+    let uid = firebase.auth().currentUser.uid;
     console.log("in data.js createPost");
     let db = firebase.firestore();
     // Add a second document with a generated ID.
@@ -137,7 +131,9 @@ window.data = {
       // An error happened.
     });
   },
+
   deleteFunction: (idOfPost) => {
+  	console.log("idofpost:" + idOfPost)
     db.collection("Users").doc(idOfPost).delete().then(() => {
       console.log("Document successfully deleted!");
     }).catch(function(error) {
@@ -146,21 +142,17 @@ window.data = {
   },
 
 
-  editFunction: (idOfPost) => {
-
-    /*let postOfUser = event.target.id;
-    console.log(postOfUser);*/
-    let newPost = document.getElementById("editPostInput").value;
-
+  editFunction: (idOfPost, newStatus, newPost) => {
+		
     db.collection("Users").doc(idOfPost).set({
-
-      "message": newPost
-    }, {
-      merge: true
-    }).then(() => {
+    	"status" : newStatus,
+    	"message": newPost
+    }, {merge: true}).then(() => {
       console.log("Document successfully edit!");
     }).catch(function(error) {
       console.error("Error edit document: ", error);
     });
   },
+
+
 }
