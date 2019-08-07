@@ -16,9 +16,10 @@
       <section id="homePage">
         <button class="button"  id="goProfilePage">Profile</button>
         <p id="homePageWelcome">Bienvenido a Open!!! mira lo que comparte la comunidad!!!<p>
+        <p id = "alertForPostEmpty"></p>
         <textArea class= "post" id= "timelinePost" type="textArea" rows= "6"  cols= "70" placeholder= "¿Cómo te sientes?" required></textarea>
         <section id="selectTheStatus">
-          <label><input type="radio" name="radioForStatus" value="Publico">Público</label>
+          <label><input type="radio" name="radioForStatus" value="Publico" checked="checked">Público</label>
           <label><input type="radio" name="radioForStatus" value="Privado">Privado</label>
         </section>
         <button class="button" id="buttonForCreatePost">Publicar</button>
@@ -29,10 +30,11 @@
         <button class= "button" id= "goHomePage">Inicio</button>
         <p id= "profileWelcome">ESTO SOLO LO VES TÚ</p>
         <div id= "profile"></div>
+        <p id = "alertForPostEmptyProfile"></p>
         <textArea class= "post" id= "timelinePostPerfil" type="textArea" rows= "6"  cols= "70" placeholder= "¿Cómo te sientes?" required></textarea>
         <section id="selectTheStatusPerfil">
-          <label><input type="radio" name="radioForStatus" value="Publico">Público</label>
-          <label><input type="radio" name="radioForStatus" value="Privado">Privado</label>
+          <label><input type="radio" name="radioForStatusProfile" value="Publico" checked="checked">Público</label>
+          <label><input type="radio" name="radioForStatusProfile" value="Privado">Privado</label>
         </section>
         <button class="button" id="buttonForCreatePostPerfil">Publicar</button>
         <section id="sectionWithUidPost"></section>

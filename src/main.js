@@ -1,18 +1,24 @@
-document.getElementById("alertForVerification").style.display ="none";
+let alertForVerification = document.getElementById("alertForVerification");
+alertForVerification.style.display ="none";
 
 const logInPage = document.getElementById("logInPage");
 const signInPage =document.getElementById("signInPage");
 const timeLine = document.getElementById("timeLine");
 
-let username = document.getElementById("enterUsername");
-let name = document.getElementById("enterName");
-let post = document.getElementById("timelinePost");
+let enterUsername = document.getElementById("enterUsername");
+let enterName = document.getElementById("enterName");
+let timelinePost = document.getElementById("timelinePost");
 
+let enterEmail = document.getElementById("enterEmail");
+let enterPassword = document.getElementById("enterPassword");
+
+let userEmail = document.getElementById("userEmail");
+let userPassword = document.getElementById("userPassword");
 
 let signIn = () => {
 	console.log("in: main.js signIn")
-	let email = document.getElementById("userEmail").value;
-	let password = document.getElementById("userPassword").value;
+	let email = userEmail.value;
+	let password = userPassword.value;
 	window.data.signIn(email, password)
 
 };
@@ -25,18 +31,22 @@ let createAcountFunction = () => {
 
 let createUser = () => {
 	console.log("in: main.js createUser")
-	let email = document.getElementById("enterEmail").value;
-	let password = document.getElementById("enterPassword").value;
-	let name = document.getElementById("enterName").value;
+	let email = enterEmail.value;
+	let password = enterPassword.value;
+	let name = enterName.value;
+
 	window.data.createUser(email, password, name);
+
   	signInPage.style.display= "none";
 	logInPage.style.display = "block";
-	document.getElementById("alertForVerification").style.display ="block";
+	alertForVerification.style.display ="block";
 };
 
 const signOutFunction= () => {
 	console.log("in: main.js signOutFunction")
+
 	window.data.signOutFunction()
+	
 	timeLine.style.display= "none";
 	userInformationInTimeline.style.display="none";
 	logInPage.style.display= "block";
