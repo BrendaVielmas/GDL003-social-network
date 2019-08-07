@@ -1,12 +1,17 @@
-/*moviles*/
+/*moviles 320x568---iPhone 5/SE*/
+  header{
+
+  }
+
+
     body{
         text-align: center;
         column-count: auto;
       }
 
       .principalLogo {
-        width: 12rem;
-        height: 8rem;
+        width: 9rem;
+        height: 6rem;
         display: flex;
         margin: 1rem;
         margin-left: auto;
@@ -19,18 +24,19 @@
 
       p {
           text-align: center;
-          font-size: 18pt;
-          margin: auto;
+          font-size: 15pt;
+          margin: 1%;
       }
 
       .input {
-          width: 15rem;
-          height: 2rem;
+        /*  width: 22rem;
+          height: 2rem;*/
          margin-top: 1rem;
-         margin-bottom: 1rem;
-          font-size: 20pt;
+        /*margin-bottom: 1rem;*/
+          font-size: 15pt;
           margin-left: auto;
           margin-right: auto;
+
 
       }
       .button, .buttonDelete, .buttonEdit, .saveButton {
@@ -40,12 +46,14 @@
           font-size: 16pt;
           margin-left: auto;
           margin-right: auto;
+          margin-bottom: 10%;
+          margin-top: 5%;
           border-radius: 5rem;
           cursor: pointer;
       }
       .textForClick {
           text-align: center;
-          font-size: 18pt;
+          font-size: 16pt;
           margin: auto;
           text-decoration: underline;
           font-weight: bold;
@@ -53,32 +61,34 @@
       }
       #textForCreateAcount {
           text-align: center;
-          font-size: 18pt;
+          font-size: 16pt;
           margin: auto;
       }
+
+      .contextWords{
+        font-size: 12pt;
+      }
+
+
       .postInBox {
-        width: 40rem;
+        width: 17rem;
         height: 10rem;
         border: black 3px solid;
         margin: 2rem;
         display: flex;
         margin-left: auto;
         margin-right: auto;
+        padding: 2%;
+        font-size: 8;
+      }
 
+
+      .post {
+        font-size: 12pt;
+        padding: 2% 2%;
 
       }
 /*tablets*/
 @media screen and (min-width: 481px) and (max-width: 780px) {}
 /*escritorio normal*/
 @media (min-width: 1024px) {}
-
-
-  for= "heart"] {
-    color: #aab8c2;
-    font-size: 2em;
-    cursor: pointer;
-  }
-
-  [id='toggle-heart']:checked + label {
-    color: #e2264d;
-  }
