@@ -1,18 +1,24 @@
-document.getElementById("alertForVerification").style.display ="none";
+let alertForVerification = document.getElementById("alertForVerification");
+alertForVerification.style.display ="none";
 
 const logInPage = document.getElementById("logInPage");
 const signInPage =document.getElementById("signInPage");
 const timeLine = document.getElementById("timeLine");
 
-let username = document.getElementById("enterUsername");
-let name = document.getElementById("enterName");
-let post = document.getElementById("timelinePost");
+let enterUsername = document.getElementById("enterUsername");
+let enterName = document.getElementById("enterName");
+let timelinePost = document.getElementById("timelinePost");
 
+let enterEmail = document.getElementById("enterEmail");
+let enterPassword = document.getElementById("enterPassword");
+
+let userEmail = document.getElementById("userEmail");
+let userPassword = document.getElementById("userPassword");
 
 let signIn = () => {
 	console.log("in: main.js signIn")
-	let email = document.getElementById("userEmail").value;
-	let password = document.getElementById("userPassword").value;
+	let email = userEmail.value;
+	let password = userPassword.value;
 	window.data.signIn(email, password)
 
 };
