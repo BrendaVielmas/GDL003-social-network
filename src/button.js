@@ -4,6 +4,7 @@ const post = document.getElementById("timelinePost");
 const postProfile = document.getElementById("timelinePostPerfil");
 let nameInProfile = document.getElementById("profile");
 
+
 let db = firebase.firestore()
 db.collection("Users").where("status", "==", "Publico")
   .onSnapshot((mnsj) => {
@@ -26,11 +27,11 @@ db.collection("Users").where("status", "==", "Publico")
 						  <p>Estado: ${postOfUser.message}</p>
 						  <button class="buttonEdit" id="buttonForEditpost">Editar</button>
 							<button class="buttonDelete" id="${doc.id}">Eliminar</button>
-						</section>
-						<section id="buttonForLike">
-				      <button > &#x1F49B;  </button>
-			    	  <p>Me gusta ${postOfUser.likes}</p>
-			      </section>`
+              <section id="buttonForLike">
+  				      <button id="${doc.id}" class="buttonLike"> &#x1F49B;  </button>
+  			    	  <p>Me gusta ${postOfUser.likes}</p>
+					    </section>
+						</section>`
 
         let newPost = document.getElementById("editPostInput").value;
 
@@ -51,7 +52,12 @@ db.collection("Users").where("status", "==", "Publico")
         let savebuttons = document.getElementsByClassName("saveButton");
         for (let i = 0; i < savebuttons.length; i++) {
           savebuttons[i].addEventListener("click", editPost);
-        }
+         };
+
+        let likeButtons = document.getElementsByClassName("buttonLike");
+        for (let i = 0; i < likeButtons.length; i++) {
+          likeButtons[i].addEventListener("click", sendLikes);
+}
       } else {
         console.log(doc.id, " => ", doc.data());
 
@@ -61,13 +67,20 @@ db.collection("Users").where("status", "==", "Publico")
  						<p>Fecha: ${postOfUser.dates}</p>
 						<p>Nombre: ${postOfUser.name}</p>
  						<p>Estado: ${postOfUser.message}</p>
- 						</section>
- 						<section id="buttonForLike">
- 				    <button > &#x1F49B;  </button>
+            <section id="buttonForLike">
+ 				    <button id="${doc.id}" class="buttonLike"> &#x1F49B;</button>
  			    	<p>Me gusta ${postOfUser.likes}</p>
+ 						</section>
+
  			      </section>`
 
+            let likeButtons = document.getElementsByClassName("buttonLike");
+            for (let i = 0; i < likeButtons.length; i++) {
+              likeButtons[i].addEventListener("click", sendLikes);
+            };
       }
+
+
     });
   });
 
@@ -88,21 +101,21 @@ dbUid.collection("Users")
         let postOfUser = doc.data();
 
         document.getElementById("sectionWithUidPost").innerHTML += `
-												<section id = "inputEditPost">
-											  	<input class= "post" id= "editPostInput" type="textArea" size = "30" value = "${postOfUser.message}"></input>
-												  <button class= "saveButton" id="${doc.id}">Guardar</button>
-											  </section>
-												<section id="thisPost"  class = "postInBox">
-												  <p>Fecha: ${postOfUser.dates}</p>
-												  <p>Nombre: ${postOfUser.name}</p>
-											  	<p>Estado: ${postOfUser.message}</p>
-											  	<button class="buttonEdit" id="${doc.id}edit">Editar</button>
-													<button class="buttonDelete" id="${doc.id}delete">Eliminar</button>
-												</section>
-												<section id="buttonForLike">
-										      <button > &#x1F49B;  </button>
-									    	  <p>Me gusta ${postOfUser.likes}</p>
-									      </section>`
+							<section id = "inputEditPost">
+						  	<input class= "post" id= "editPostInput" type="textArea" size = "30" value = "${postOfUser.message}"></input>
+							  <button class= "saveButton" id="${doc.id}">Guardar</button>
+						  </section>
+							<section id="thisPost"  class = "postInBox">
+							  <p>Fecha: ${postOfUser.dates}</p>
+							  <p>Nombre: ${postOfUser.name}</p>
+						  	<p>Estado: ${postOfUser.message}</p>
+						  	<button class="buttonEdit" id="${doc.id}edit">Editar</button>
+								<button class="buttonDelete" id="${doc.id}delete">Eliminar</button>
+                <section id="buttonForLike">
+                  <button id="${doc.id}" class="buttonLike"> &#x1F49B;</button>
+                  <p>Me gusta ${postOfUser.likes}</p>
+							  </section>
+            </section>`
 
         let newPost = document.getElementById("editPostInput").value;
 
@@ -123,7 +136,12 @@ dbUid.collection("Users")
         let savebuttons = document.getElementsByClassName("saveButton");
         for (let i = 0; i < savebuttons.length; i++) {
           savebuttons[i].addEventListener("click", editPost);
-        }
+        };
+
+        let likeButtons = document.getElementsByClassName("buttonLike");
+        for (let i = 0; i < likeButtons.length; i++) {
+          likeButtons[i].addEventListener("click", sendLikes);
+          };
       };
     });
   });
@@ -139,6 +157,8 @@ const deleteButton = (event) => {
 
 const editPost = (event) => {
   let idOfPost = event.target.id;
+  console.log(event.target.id)
+
   // messageToDelete =
   window.data.editFunction(idOfPost);
 };
@@ -178,6 +198,19 @@ const createPostFunctionProfile = (docRef) => {
   console.log(dates);
   window.data.createPost(message, status, dates);
 
+};
+
+/*const editPost = (event) => {
+  let idOfPost = event.target.id;
+
+  // messageToDelete =
+  window.data.editFunction(idOfPost);
+};*/
+
+const sendLikes = (event) => {
+console.log(event.target.id);
+    let idOfPost = event.target.id;
+  window.data.likesFunction(idOfPost);
 };
 
 const goToProfilePage = () => {

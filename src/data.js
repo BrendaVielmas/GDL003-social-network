@@ -82,7 +82,7 @@ window.data = {
   },
 
 
-  createPost: (message, status, dates, likesFunction) => {
+  createPost: (message, status, dates, likesCounter) => {
     let name = localStorage.getItem("name");
     console.log(name);
     uid = firebase.auth().currentUser.uid;
@@ -95,11 +95,13 @@ window.data = {
         "name": name,
         "dates": dates,
         "status": status,
-        "likes": 0
+          "likes": 0
 
       })
       .then((docRef) => {
-        console.log("Document written with ID: ", docRef.id);
+
+      console.log("Document written with ID: ", docRef.id);
+
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
@@ -159,8 +161,22 @@ window.data = {
       merge: true
     }).then(() => {
       console.log("Document successfully edit!");
+      console.log(idOfPost);
+
     }).catch(function(error) {
       console.error("Error edit document: ", error);
     });
   },
+
+
+ likesFunction: (idOfPost) => {
+  const db = firebase.firestore();
+  const increment = firebase.firestore.FieldValue.increment(1);
+  let likesRef = db.collection("Users").doc(idOfPost);
+
+//  console.log(likesRef);
+  likesRef.update({ likes: increment });
+   //console.log(likesUpdated);
+
+ },
 }
