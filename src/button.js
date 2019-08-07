@@ -1,4 +1,5 @@
 const homePage = document.getElementById("homePage");
+
 const timeLine = document.getElementById("timeLine")
 const timelinePost = document.getElementById("timelinePost");
 const timelinePostPerfil = document.getElementById("timelinePostPerfil");
@@ -6,6 +7,7 @@ let profile = document.getElementById("profile");
 let alertForPostEmpty = document.getElementById("alertForPostEmpty");
 let alertForPostEmptyProfile = document.getElementById("alertForPostEmptyProfile");
 //inicialize of timeline part
+
 let db = firebase.firestore()
 db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
   .onSnapshot((mnsj) => {
@@ -28,6 +30,7 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 							<button class= "saveButton" id="${doc.id}" data-id="${doc.id}">Guardar</button>
 							<button class= "cancel" id="${doc.id}" data-id="${doc.id}">Cancelar</button>
 						</section>
+
 						<section id="${doc.id}thisPost" class = "postInBox">
 							<p>Fecha: ${postOfUser.dates}</p>
 							<p>Nombre: ${postOfUser.name}</p>
@@ -42,7 +45,6 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 
         let newPost = document.getElementById("editPostInput").value;
 
-        
       } else {
         console.log(doc.id, " => ", doc.data());
 
@@ -52,12 +54,17 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
  						<p>Fecha: ${postOfUser.dates}</p>
 						<p>Nombre: ${postOfUser.name}</p>
  						<p>Estado: ${postOfUser.message}</p>
- 						</section>
- 						<section id="buttonForLike">
- 				    <button > &#x1F49B;  </button>
+            <section id="buttonForLike">
+ 				    <button id="${doc.id}" class="buttonLike"> &#x1F49B;</button>
  			    	<p>Me gusta ${postOfUser.likes}</p>
+ 						</section>
+
  			      </section>`
 
+            let likeButtons = document.getElementsByClassName("buttonLike");
+            for (let i = 0; i < likeButtons.length; i++) {
+              likeButtons[i].addEventListener("click", sendLikes);
+            };
       }
     });
     let buttons = document.getElementsByClassName("buttonDelete");
@@ -91,6 +98,10 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
         for (let i = 0; i < savebuttons.length; i++) {
           savebuttons[i].addEventListener("click", editPost);
         }
+       let likeButtons = document.getElementsByClassName("buttonLike");
+        for (let i = 0; i < likeButtons.length; i++) {
+          likeButtons[i].addEventListener("click", sendLikes);
+}
   });
 //finalize of timeline part
 
@@ -114,6 +125,7 @@ dbUid.collection("Users").orderBy("dates","desc")
         console.log(postOfUserProfile.status);
         console.log(`${doc.id} public: ${publicChecked}, private: ${privateChecked}`);
         document.getElementById("sectionWithUidPost").innerHTML += `
+
 			<section class="invisible" id="${doc.id}inputEditPostProfile">
 				<input class= "post" id= "${doc.id}editPostInputProfile" type="textArea" size = "30" value = "${postOfUserProfile.message}"></input>
 				<label><input type="radio" name="${doc.id}radioForStatusProfile" value="Publico" ${publicChecked}>Público</label>
@@ -132,7 +144,6 @@ dbUid.collection("Users").orderBy("dates","desc")
 				<button > &#x1F49B;  </button>
 				<p>Me gusta ${postOfUserProfile.likes}</p>
 			</section>`
-
         let newPostProfile = document.getElementById(`${doc.id}editPostInputProfile`).value;
 
       };
@@ -154,6 +165,7 @@ dbUid.collection("Users").orderBy("dates","desc")
           });
         };
 
+
         let cancelProfile = document.getElementsByClassName("cancel");
     		for (let i = 0; i < cancelProfile.length; i++) {
 				cancelProfile[i].addEventListener("click", () =>{
@@ -169,6 +181,11 @@ dbUid.collection("Users").orderBy("dates","desc")
         for (let i = 0; i < savebuttonsProfile.length; i++) {
           savebuttonsProfile[i].addEventListener("click", editPost);
         }
+        let likeButtons = document.getElementsByClassName("buttonLike");
+        for (let i = 0; i < likeButtons.length; i++) {
+          likeButtons[i].addEventListener("click", sendLikes);
+          };
+
   });
 //finalize of profile part
 
@@ -182,6 +199,7 @@ const deleteButton = (event) => {
 
 
 const editPost = (event) => {
+
   let idOfPost = event.target.getAttribute("data-id");
   let status = document.querySelector(`[name=${idOfPost}radioForStatusProfile]:checked`).value;
 		console.log(postOfUser);
@@ -232,6 +250,19 @@ const createPostFunctionProfile = (docRef) => {
   if (saveResultOfFunction != "") {
   	alertForPostEmptyProfile.innerHTML = "Escribe un mensaje para empezar a publicar."
   }
+};
+
+/*const editPost = (event) => {
+  let idOfPost = event.target.id;
+
+  // messageToDelete =
+  window.data.editFunction(idOfPost);
+};*/
+
+const sendLikes = (event) => {
+console.log(event.target.id);
+    let idOfPost = event.target.id;
+  window.data.likesFunction(idOfPost);
 };
 
 const goToProfilePage = () => {
