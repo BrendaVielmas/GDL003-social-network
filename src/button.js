@@ -18,7 +18,7 @@ db.collection("Users").where("status", "==", "Publico")
         let postOfUser = doc.data();
         document.getElementById("sectionWithPost").innerHTML += `
 						<section id = "inputEditPost">
-							<input class= "post" id= "editPostInput" type="textArea" size = "30" value = "${postOfUser.message}"></input>
+							<input class= "post" id= "editPostInput" type="textArea" size = "15" cols="20" value = "${postOfUser.message}"></input>
 							<button class= "saveButton" id="${doc.id}">Guardar</button>
 						</section>
 						<section  class = "postInBox">
@@ -28,7 +28,7 @@ db.collection("Users").where("status", "==", "Publico")
 						  <button class="buttonEdit" id="buttonForEditpost">Editar</button>
 							<button class="buttonDelete" id="${doc.id}">Eliminar</button>
               <section id="buttonForLike">
-  				      <button id="${doc.id}" class="buttonLike"> &#x1F49B;  </button>
+  				      <button id="${doc.id}" class="buttonLike"> &#x1F49B; ${postOfUser.likes}</button>
   			    	  <p>Me gusta ${postOfUser.likes}</p>
 					    </section>
 						</section>`
@@ -68,8 +68,8 @@ db.collection("Users").where("status", "==", "Publico")
 						<p>Nombre: ${postOfUser.name}</p>
  						<p>Estado: ${postOfUser.message}</p>
             <section id="buttonForLike">
- 				    <button id="${doc.id}" class="buttonLike"> &#x1F49B;</button>
- 			    	<p>Me gusta ${postOfUser.likes}</p>
+ 				    <button id="${doc.id}" class="buttonLike"> &#x1F49B; ${postOfUser.likes}</button>
+
  						</section>
 
  			      </section>`
@@ -79,8 +79,6 @@ db.collection("Users").where("status", "==", "Publico")
               likeButtons[i].addEventListener("click", sendLikes);
             };
       }
-
-
     });
   });
 
@@ -102,7 +100,7 @@ dbUid.collection("Users")
 
         document.getElementById("sectionWithUidPost").innerHTML += `
 							<section id = "inputEditPost">
-						  	<input class= "post" id= "editPostInput" type="textArea" size = "30" value = "${postOfUser.message}"></input>
+						  	<input class= "post" id= "editPostInput" type="textArea" size = "15" value = "${postOfUser.message}"></input>
 							  <button class= "saveButton" id="${doc.id}">Guardar</button>
 						  </section>
 							<section id="thisPost"  class = "postInBox">
@@ -112,8 +110,8 @@ dbUid.collection("Users")
 						  	<button class="buttonEdit" id="${doc.id}edit">Editar</button>
 								<button class="buttonDelete" id="${doc.id}delete">Eliminar</button>
                 <section id="buttonForLike">
-                  <button id="${doc.id}" class="buttonLike"> &#x1F49B;</button>
-                  <p>Me gusta ${postOfUser.likes}</p>
+                  <button id="${doc.id}" class="buttonLike"> &#x1F49B;${postOfUser.likes}</button>
+
 							  </section>
             </section>`
 
@@ -199,13 +197,6 @@ const createPostFunctionProfile = (docRef) => {
   window.data.createPost(message, status, dates);
 
 };
-
-/*const editPost = (event) => {
-  let idOfPost = event.target.id;
-
-  // messageToDelete =
-  window.data.editFunction(idOfPost);
-};*/
 
 const sendLikes = (event) => {
 console.log(event.target.id);
