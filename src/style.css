@@ -1,7 +1,8 @@
 /*moviles 320x568---iPhone 5/SE*/
-  header{
 
-  }
+html {
+  font-family: Helvetica, Arial, Sans-Serif;
+}
 
 
     body{
@@ -13,51 +14,78 @@
         width: 9rem;
         height: 6rem;
         display: flex;
-        margin: 1rem;
+        margin-top: 4%;
         margin-left: auto;
         margin-right: auto;
+
       }
        #signInPage, #timeLine, #inputEditPost, .invisible {
 
           display : none;
       }
 
+
+      #slogan{
+        padding-bottom: 4%;
+        font-size: 1em;
+      }
+
       p {
           text-align: center;
-          font-size: 15pt;
-          margin: 1%;
+          font-size: .9em;
+          margin-top: 2%;
+          margin-bottom: 5%;
+          color: 	#1a1a1a;
+          letter-spacing: 1px;
       }
 
       .input {
         /*  width: 22rem;
           height: 2rem;*/
-         margin-top: 1rem;
+         margin-top: 3%;
         /*margin-bottom: 1rem;*/
-          font-size: 15pt;
+          font-size: 1.2em;
+          letter-spacing: 1.2px;
           margin-left: auto;
           margin-right: auto;
 
-
       }
+
+
       .button, .buttonDelete, .buttonEdit, .saveButton {
           height: 3rem;
           text-align: center;
           display: flex;
-          font-size: 16pt;
+          font-size: .9em;
           margin-left: auto;
           margin-right: auto;
-          margin-bottom: 10%;
-          margin-top: 5%;
-          border-radius: 5rem;
+          margin-bottom: 8%;
+          margin-top: 3%;
+          border-radius: 3rem;
           cursor: pointer;
+
+      }
+
+      #buttonSignIn{
+          background-color: #1a1a1a;
+          color: #f2f2f2;
+          font-weight: 500;
+          margin-bottom: 11%;
+          font-size: .9em;
+          border-radius: .5rem;
+          font-family: Georgia, serif;
+          letter-spacing: 2px;
+          cursor: pointer;
+          outline: none;
       }
 
       .button, .buttonDelete, .buttonEdit, .saveButton, .cancel {
           height: 3rem;
           text-align: center;
           display: flex;
-          font-size: 16pt;
-          margin-left: auto;
+          font-size: .9em;
+          font-weight: 400;
+          margin-left:
           margin-right: auto;
           border-radius: 5rem;
           cursor: pointer;
@@ -65,20 +93,23 @@
 
       .textForClick {
           text-align: center;
-          font-size: 16pt;
+          font-size: 1.1em;
           margin: auto;
           text-decoration: underline;
           font-weight: bold;
           cursor: pointer;
+
       }
+
       #textForCreateAcount {
           text-align: center;
-          font-size: 16pt;
+          font-size: .9em;
           margin: auto;
       }
 
       .contextWords{
-        font-size: 12pt;
+        font-size: .9em;
+        margin-bottom: 1%;
       }
 
 
@@ -91,13 +122,15 @@
         margin-left: auto;
         margin-right: auto;
         padding: 2%;
-        font-size: 8;
+        font-size: 1em;
       }
 
-
       .post {
-        font-size: 12pt;
+        font-size: 1em;
         padding: 2% 2%;
+        letter-spacing: 1px;
+        margin-left: auto;
+        margin-right: auto;
 
       }
 /*tablets*/
