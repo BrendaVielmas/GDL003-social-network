@@ -1,55 +1,91 @@
-/*moviles*/
+/*moviles 320x568---iPhone 5/SE*/
+
+html {
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
+
     body{
         text-align: center;
         column-count: auto;
       }
 
       .principalLogo {
-        width: 12rem;
-        height: 8rem;
+        width: 9rem;
+        height: 6rem;
         display: flex;
-        margin: 1rem;
+        margin-top: 4%;
         margin-left: auto;
         margin-right: auto;
+
       }
        #signInPage, #timeLine, #inputEditPost, .invisible {
 
           display : none;
       }
 
+
+      #slogan{
+        padding-bottom: 4%;
+        font-size: 1em;
+      }
+
       p {
           text-align: center;
-          font-size: 18pt;
-          margin: auto;
+          font-size: .9em;
+          margin-top: 2%;
+          margin-bottom: 5%;
+          color: 	#1a1a1a;
+          letter-spacing: 1px;
       }
 
       .input {
-          width: 15rem;
-          height: 2rem;
-         margin-top: 1rem;
-         margin-bottom: 1rem;
-          font-size: 20pt;
+        /*  width: 22rem;
+          height: 2rem;*/
+         margin-top: 3%;
+        /*margin-bottom: 1rem;*/
+          font-size: 1.2em;
+          letter-spacing: 1.2px;
           margin-left: auto;
           margin-right: auto;
 
       }
+
+
       .button, .buttonDelete, .buttonEdit, .saveButton {
           height: 3rem;
           text-align: center;
           display: flex;
-          font-size: 16pt;
+          font-size: .9em;
           margin-left: auto;
           margin-right: auto;
-          border-radius: 5rem;
+          margin-bottom: 8%;
+          margin-top: 3%;
+          border-radius: 3rem;
           cursor: pointer;
+
+      }
+
+      #buttonSignIn{
+          background-color: #1a1a1a;
+          color: #f2f2f2;
+          font-weight: 500;
+          margin-bottom: 11%;
+          font-size: .9em;
+          border-radius: .5rem;
+          font-family: Georgia, serif;
+          letter-spacing: 2px;
+          cursor: pointer;
+          outline: none;
       }
 
       .button, .buttonDelete, .buttonEdit, .saveButton, .cancel {
           height: 3rem;
           text-align: center;
           display: flex;
-          font-size: 16pt;
-          margin-left: auto;
+          font-size: .9em;
+          font-weight: 400;
+          margin-left:
           margin-right: auto;
           border-radius: 5rem;
           cursor: pointer;
@@ -57,40 +93,47 @@
 
       .textForClick {
           text-align: center;
-          font-size: 18pt;
+          font-size: 1.1em;
           margin: auto;
           text-decoration: underline;
           font-weight: bold;
           cursor: pointer;
+
       }
+
       #textForCreateAcount {
           text-align: center;
-          font-size: 18pt;
+          font-size: .9em;
           margin: auto;
       }
+
+      .contextWords{
+        font-size: .9em;
+        margin-bottom: 1%;
+      }
+
+
       .postInBox {
-        width: 40rem;
+        width: 17rem;
         height: 10rem;
         border: black 3px solid;
         margin: 2rem;
         display: flex;
         margin-left: auto;
         margin-right: auto;
+        padding: 2%;
+        font-size: 1em;
+      }
 
+      .post {
+        font-size: 1em;
+        padding: 2% 2%;
+        letter-spacing: 1px;
+        margin-left: auto;
+        margin-right: auto;
 
       }
 /*tablets*/
 @media screen and (min-width: 481px) and (max-width: 780px) {}
 /*escritorio normal*/
 @media (min-width: 1024px) {}
-
-
-  for= "heart"] {
-    color: #aab8c2;
-    font-size: 2em;
-    cursor: pointer;
-  }
-
-  [id='toggle-heart']:checked + label {
-    color: #e2264d;
-  }
