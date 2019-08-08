@@ -1,171 +1,175 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyCUsBU3Hw9_o8myi2rql4FKoFxm7lIoRqc",
-  authDomain: "laboratoria-sn.firebaseapp.com",
-  databaseURL: "https://laboratoria-sn.firebaseio.com",
-  projectId: "laboratoria-sn",
-  storageBucket: "",
-  messagingSenderId: "67746155841",
-  appId: "1:67746155841:web:88baef8d3cf9be32"
+	apiKey: "AIzaSyCUsBU3Hw9_o8myi2rql4FKoFxm7lIoRqc",
+	authDomain: "laboratoria-sn.firebaseapp.com",
+	databaseURL: "https://laboratoria-sn.firebaseio.com",
+	projectId: "laboratoria-sn",
+	storageBucket: "",
+	messagingSenderId: "67746155841",
+	appId: "1:67746155841:web:88baef8d3cf9be32"
 };
 
 firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged(function(user) {
-  console.log("in: data.js onAuthStateChanged");
-  if (user && user.emailVerified) {
-    console.log("usuario conectado");
-    console.log(user);
-    localStorage.setItem("name", user.displayName);
-    localStorage.setItem("uid", user.uid);
-    //User is signed in.
- const obj ={
-	name : user.displayName,
-	email : user.email,
-	photo : user.photoURL
+	console.log("in: data.js onAuthStateChanged");
+	if (user && user.emailVerified) {
+		console.log("usuario conectado");
+		console.log(user);
+		localStorage.setItem("name", user.displayName);
+		localStorage.setItem("uid", user.uid);
+		//User is signed in.
+		const obj = {
+			name: user.displayName,
+			email: user.email,
+			photo: user.photoURL
 		}
-    document.getElementById("profile").innerHTML = user.displayName + '<br>' + user.email + '<br>' + `<img src=${user.photoURL }>`;
-  } else {
-    // User is signed out.
-    console.log("usuario desconectado");
-  };
+		document.getElementById("profile").innerHTML = user.displayName + '<br>' + user.email + '<br>' + `<img src=${user.photoURL }>`;
+	} else {
+		// User is signed out.
+		console.log("usuario desconectado");
+	};
 })
 
 
 window.data = {
-  
-  acountValidation: (user) => {
-    console.log("in: data.js acountValidation")
-    user.sendEmailVerification().then(() => {
-      console.log("Enviando correo electrónico");
-      // Email sent.
-    }).catch((error) => {
-      console.log("Error de verificación");
-      // An error happened.
-    });
-  },
 
-  createUser: (email, password, name) => {
-    console.log("in: data.js createUser")
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-      user = firebase.auth().currentUser;
-      window.data.acountValidation(user)
-    }).then(() => {
-      user.updateProfile({
-          displayName: name,
-          photoURL: "images/profilePhoto.jpg"
-        }).then(() => {
-          // User updated
-        })
-        .catch((error) => {
-          console.log(error.message);
-        });
-    }).catch((error) => {
-      // Handle Errors here.
-      let errorCode = error.code;
-      let errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
-    });
-  },
+	acountValidation: (user) => {
+		console.log("in: data.js acountValidation")
+		user.sendEmailVerification().then(() => {
+			console.log("Enviando correo electrónico");
+			// Email sent.
+		}).catch((error) => {
+			console.log("Error de verificación");
+			// An error happened.
+		});
+	},
 
-  goTimeLine: () => {
-    console.log("in: data.js goTimeLine")
-    location.assign("muro.html");
-  },
+	createUser: (email, password, name) => {
+		console.log("in: data.js createUser")
+		firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
+			user = firebase.auth().currentUser;
+			window.data.acountValidation(user)
+		}).then(() => {
+			user.updateProfile({
+					displayName: name,
+					photoURL: "images/profilePhoto.jpg"
+				}).then(() => {
+					// User updated
+				})
+				.catch((error) => {
+					console.log(error.message);
+				});
+		}).catch((error) => {
+			// Handle Errors here.
+			let errorCode = error.code;
+			let errorMessage = error.message;
+			console.log(errorCode);
+			console.log(errorMessage);
+		});
+	},
 
-
-
-  createPost: (message, status, dates, likesCounter) => {
-  	if (message == "") {
-  		return "Error. El mensaje no puede estar vacío";
-	}
-    let name = localStorage.getItem("name");
-    console.log(name);
-    let uid = firebase.auth().currentUser.uid;
-    console.log("in data.js createPost");
-    let db = firebase.firestore();
-    // Add a second document with a generated ID.
-    db.collection("Users").add({
-        "message": message,
-        "uid": uid,
-        "name": name,
-        "dates": dates,
-        "status": status,
-          "likes": 0
-
-      })
-      .then((docRef) => {
-
-      console.log("Document written with ID: ", docRef.id);
-
-      })
-      .catch((error) => {
-        console.error("Error adding document: ", error);
-      });
-  },
-
-  /*	deletePost : () => {
-  		db.collection("Users").doc(docRef.id).delete();
-  	}, */
-
-  signIn: (email, password) => {
-    console.log("in: data.js signIn")
-    firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((user) => {
-        console.log(user);
-        console.log("usuario activo");
-        if (user.user.emailVerified) {
-          window.data.goTimeLine()
-        }
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        let errorCode = error.code;
-        let errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
-      });
-  },
-
-  signOutFunction: () => {
-    console.log("in: data.js signOutFunction")
-    firebase.auth().signOut().then(() => {
-      // Sign-out successful.
-    }).catch((error) => {
-      // An error happened.
-    });
-  },
-
-  deleteFunction: (idOfPost) => {
-  	console.log("idofpost:" + idOfPost)
-    db.collection("Users").doc(idOfPost).delete().then(() => {
-      console.log("Document successfully deleted!");
-    }).catch(function(error) {
-      console.error("Error removing document: ", error);
-    });
-  },
+	goTimeLine: () => {
+		console.log("in: data.js goTimeLine")
+		location.assign("muro.html");
+	},
 
 
-  editFunction: (idOfPost, newStatus, newPost) => {
-		
-    db.collection("Users").doc(idOfPost).set({
-    	"status" : newStatus,
-    	"message": newPost
-    }, {merge: true}).then(() => {
-      console.log("Document successfully edit!");
-      console.log(idOfPost);
 
-    }).catch(function(error) {
-      console.error("Error edit document: ", error);
-    });
-  },
+	createPost: (message, status, dates, likesCounter) => {
+		if (message == "") {
+			return "Error. El mensaje no puede estar vacío";
+		}
+		let name = localStorage.getItem("name");
+		console.log(name);
+		let uid = firebase.auth().currentUser.uid;
+		console.log("in data.js createPost");
+		let db = firebase.firestore();
+		// Add a second document with a generated ID.
+		db.collection("Users").add({
+				"message": message,
+				"uid": uid,
+				"name": name,
+				"dates": dates,
+				"status": status,
+				"likes": 0
 
- likesFunction: (idOfPost) => {
-  const increment = firebase.firestore.FieldValue.increment(1);
-  let likesRef = db.collection("Users").doc(idOfPost);
-//  console.log(likesRef);
-  likesRef.update({ likes: increment });
-   //console.log(likesUpdated);
+			})
+			.then((docRef) => {
 
- },
+				console.log("Document written with ID: ", docRef.id);
+
+			})
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+			});
+	},
+
+	/*	deletePost : () => {
+			db.collection("Users").doc(docRef.id).delete();
+		}, */
+
+	signIn: (email, password) => {
+		console.log("in: data.js signIn")
+		firebase.auth().signInWithEmailAndPassword(email, password)
+			.then((user) => {
+				console.log(user);
+				console.log("usuario activo");
+				if (user.user.emailVerified) {
+					window.data.goTimeLine()
+				}
+			})
+			.catch((error) => {
+				// Handle Errors here.
+				let errorCode = error.code;
+				let errorMessage = error.message;
+				console.log(errorCode);
+				console.log(errorMessage);
+			});
+	},
+
+	signOutFunction: () => {
+		console.log("in: data.js signOutFunction")
+		firebase.auth().signOut().then(() => {
+			// Sign-out successful.
+		}).catch((error) => {
+			// An error happened.
+		});
+	},
+
+	deleteFunction: (idOfPost) => {
+		console.log("idofpost:" + idOfPost)
+		db.collection("Users").doc(idOfPost).delete().then(() => {
+			console.log("Document successfully deleted!");
+		}).catch(function(error) {
+			console.error("Error removing document: ", error);
+		});
+	},
+
+
+	editFunction: (idOfPost, newStatus, newPost) => {
+
+		db.collection("Users").doc(idOfPost).set({
+			"status": newStatus,
+			"message": newPost
+		}, {
+			merge: true
+		}).then(() => {
+			console.log("Document successfully edit!");
+			console.log(idOfPost);
+
+		}).catch(function(error) {
+			console.error("Error edit document: ", error);
+		});
+	},
+
+	likesFunction: (idOfPost) => {
+		const increment = firebase.firestore.FieldValue.increment(1);
+		let likesRef = db.collection("Users").doc(idOfPost);
+		//  console.log(likesRef);
+		likesRef.update({
+			likes: increment
+		});
+		//console.log(likesUpdated);
+
+	},
 
 }
