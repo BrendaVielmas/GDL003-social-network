@@ -155,7 +155,8 @@ window.data = {
 		}).then(() => {
 			console.log("Document successfully edit!");
 			console.log(idOfPost);
-
+			console.log(newPost);
+			console.log(newStatus);
 		}).catch(function(error) {
 			console.error("Error edit document: ", error);
 		});

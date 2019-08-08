@@ -35,7 +35,7 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 						<p>Fecha: ${postOfUser.dates}</p>
 						<p>Nombre: ${postOfUser.name}</p>
 						<p>Estado: ${postOfUser.message}</p>
-						<button class="buttonEdit" id="${doc.id}buttoneditpost" data-id="${doc.id}">Editar</button>
+						<button class="buttonEdit" id="${doc.id}buttonEditPost" data-id="${doc.id}">Editar</button>
 						<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 						<section id="${doc.id}buttonForLike">
 							<button id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}"> &#x1F49B;</button>
@@ -123,14 +123,14 @@ dbUid.collection("Users").orderBy("dates", "desc")
 				<input class= "post" id= "${doc.id}editPostInputProfile" type="textArea" size = "30" value = "${postOfUserProfile.message}"></input>
 				<label><input type="radio" name="${doc.id}radioForStatusProfile" value="Publico" ${publicChecked}>Público</label>
 				<label><input type="radio" name="${doc.id}radioForStatusProfile" value="Privado" ${privateChecked}>Privado</label>
-				<button class= "saveButton" id="${doc.id}saveButton" data-id="${doc.id}">Guardar</button>
+				<button class= "saveButtonProfile" id="${doc.id}saveButton" data-id="${doc.id}">Guardar</button>
 				<button class= "cancel" id="${doc.id}cancelButton" data-id="${doc.id}">Cancelar</button>
 			</section>
 			<section id="${doc.id}thisPostProfile" class = "postInBox">
 				<p>Fecha: ${postOfUserProfile.dates}</p>
 				<p>Nombre: ${postOfUserProfile.name}</p>
 				<p>Estado: ${postOfUserProfile.message}</p>
-				<button class="buttonEdit" id="${doc.id}buttonEdit" data-id="${doc.id}">Editar</button>
+				<button class="buttonEditProfile" id="${doc.id}buttonEdit" data-id="${doc.id}">Editar</button>
 				<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 				<section id="${doc.id}buttonForLikeProfile">
 					<button id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}"> &#x1F49B;</button>
@@ -149,7 +149,7 @@ dbUid.collection("Users").orderBy("dates", "desc")
 			buttonsProfile[i].addEventListener("click", deleteButton);
 		};
 
-		let editButtonsProfile = document.getElementsByClassName("buttonEdit");
+		let editButtonsProfile = document.getElementsByClassName("buttonEditProfile");
 		for (let i = 0; i < editButtonsProfile.length; i++) {
 			editButtonsProfile[i].addEventListener("click", () => {
 				let docId = editButtonsProfile[i].getAttribute("data-id");
@@ -172,7 +172,7 @@ dbUid.collection("Users").orderBy("dates", "desc")
 			});
 		};
 
-		let savebuttonsProfile = document.getElementsByClassName("saveButton");
+		let savebuttonsProfile = document.getElementsByClassName("saveButtonProfile");
 		for (let i = 0; i < savebuttonsProfile.length; i++) {
 			savebuttonsProfile[i].addEventListener("click", editPostProfile);
 		}
