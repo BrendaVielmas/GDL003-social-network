@@ -1,8 +1,8 @@
 let alertForVerification = document.getElementById("alertForVerification");
-alertForVerification.style.display ="none";
+alertForVerification.style.display = "none";
 
 const logInPage = document.getElementById("logInPage");
-const signInPage =document.getElementById("signInPage");
+const signInPage = document.getElementById("signInPage");
 const timeLine = document.getElementById("timeLine");
 
 let enterUsername = document.getElementById("enterUsername");
@@ -37,48 +37,48 @@ let createUser = () => {
 
 	window.data.createUser(email, password, name);
 
-  	signInPage.style.display= "none";
+	signInPage.style.display = "none";
 	logInPage.style.display = "block";
-	alertForVerification.style.display ="block";
+	alertForVerification.style.display = "block";
 };
 
-const signOutFunction= () => {
+const signOutFunction = () => {
 	console.log("in: main.js signOutFunction")
 
 	window.data.signOutFunction()
-	
-	timeLine.style.display= "none";
-	userInformationInTimeline.style.display="none";
-	logInPage.style.display= "block";
+
+	timeLine.style.display = "none";
+	userInformationInTimeline.style.display = "none";
+	logInPage.style.display = "block";
 };
 
 let uiConfig = {
- callbacks: {
-   signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-   	console.log("in: main.js signInSuccessWithAuthResult")
-     // User successfully signed in.
-     // Return type determines whether we continue the redirect automatically
-     // or whether we leave that to developer to handle.
-     return true;
-   },
-   uiShown: function() {
-   	console.log("in: main.js uiShown")
-     // The widget is rendered.
-     // Hide the loader.
-   }
- },
- // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
- signInFlow: 'popup',
- signInSuccessUrl: 'muro.html',
- signInOptions: [
-   // Leave the lines as is for the providers you want to offer your users.
-   firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-   firebase.auth.FacebookAuthProvider.PROVIDER_ID,
- ],
- // Terms of service url.
- tosUrl: 'index.html',
- // Privacy policy url.
- privacyPolicyUrl: '<your-privacy-policy-url>'
+	callbacks: {
+		signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+			console.log("in: main.js signInSuccessWithAuthResult")
+				// User successfully signed in.
+				// Return type determines whether we continue the redirect automatically
+				// or whether we leave that to developer to handle.
+			return true;
+		},
+		uiShown: function() {
+			console.log("in: main.js uiShown")
+				// The widget is rendered.
+				// Hide the loader.
+		}
+	},
+	// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+	signInFlow: 'popup',
+	signInSuccessUrl: 'muro.html',
+	signInOptions: [
+		// Leave the lines as is for the providers you want to offer your users.
+		firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+		firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+	],
+	// Terms of service url.
+	tosUrl: 'index.html',
+	// Privacy policy url.
+	privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 let ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#authContainer', uiConfig);
