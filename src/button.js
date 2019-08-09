@@ -209,9 +209,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 const deleteButton = (event) => {
+
 	// messageToDelete =
 	let idOfPost = event.target.getAttribute("data-id");
-	if (confirm("¿Estás seguro que deseas eliminar esta publicación?")) {
+		if (confirm("¿Estás seguro que deseas eliminar esta publicación?")) {
 		window.data.deleteFunction(idOfPost);
 	}
 };
