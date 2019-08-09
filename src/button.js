@@ -32,14 +32,14 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 					</section>
 
 					<section id="${doc.id}thisPost" class = "postInBox">
-						<p>Fecha: ${postOfUser.dates}</p>
-						<p>Nombre: ${postOfUser.name}</p>
-						<p>Estado: ${postOfUser.message}</p>
+						<p class= "txtdate">Fecha: ${postOfUser.dates}</p>
+						<p class= "txtname">Nombre: ${postOfUser.name}</p>
+						<p class= "txtmns">Estado: ${postOfUser.message}</p>
 						<button class="buttonEdit" id="${doc.id}buttonEditPost" data-id="${doc.id}">Editar</button>
 						<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 						<section id="${doc.id}buttonForLike">
-							<button id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}"> &#x1F49B;</button>
-							<p>Me gusta ${postOfUser.likes}</p>
+							<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}">
+							<p class= "txtlike">Me gusta ${postOfUser.likes}</p>
 						</section>
 					</section>`
 
@@ -50,12 +50,12 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 				let postOfUser = doc.data();
 				document.getElementById("sectionWithPost").innerHTML += `
  			<section id="${doc.id}thisPost" class = "postInBox">
-				<p>Fecha: ${postOfUser.dates}</p>
-				<p>Nombre: ${postOfUser.name}</p>
-				<p>Estado: ${postOfUser.message}</p>
+				<p class= "txtdate">Fecha: ${postOfUser.dates}</p>
+				<p class= "txtname">Nombre: ${postOfUser.name}</p>
+				<p class= "txtmns">Estado: ${postOfUser.message}</p>
 				<section id="buttonForLike">
- 					<button id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}"> &#x1F49B;</button>
- 					<p>Me gusta ${postOfUser.likes}</p>
+ 					<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}">
+ 					<p class= "txtlike">Me gusta ${postOfUser.likes}</p>
  				</section>
  			</section>`
 
@@ -127,17 +127,17 @@ dbUid.collection("Users").orderBy("dates", "desc")
 				<button class= "cancel" id="${doc.id}cancelButton" data-id="${doc.id}">Cancelar</button>
 			</section>
 			<section id="${doc.id}thisPostProfile" class = "postInBox">
-				<p>Fecha: ${postOfUserProfile.dates}</p>
-				<p>Nombre: ${postOfUserProfile.name}</p>
-				<p>Estado: ${postOfUserProfile.message}</p>
+				<p class= "txtdate">Fecha: ${postOfUserProfile.dates}</p>
+				<p class= "txtname">Nombre: ${postOfUserProfile.name}</p>
+				<p class= "txtmns">Estado: ${postOfUserProfile.message}</p>
 				<button class="buttonEditProfile" id="${doc.id}buttonEdit" data-id="${doc.id}">Editar</button>
 				<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 				<section id="${doc.id}buttonForLikeProfile">
-					<button id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}"> &#x1F49B;</button>
-					<p>Me gusta ${postOfUserProfile.likes}</p>
+					<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}">
+					<p class= "txtlike">Me gusta ${postOfUserProfile.likes}</p>
 				</section>
 			</section>`
-			
+
 
 
 
@@ -213,7 +213,7 @@ const editPostProfile = (event) => {
 
 const signOutButton = () => {
 	console.log("in: button.js signOutButton");
-	window.data.signOutFunction();
+/*	window.data.signOutFunction();*/
 	location.assign("index.html");
 };
 

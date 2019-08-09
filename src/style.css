@@ -22,14 +22,15 @@ body, html {
   padding: 0.1875rem;
   position: relative;
 }
-.principalLogo {
-  width: 9rem;
-  height: 6rem;
-  display: flex;
-  margin-top: 4%;
-  margin-left: auto;
-  margin-right: auto;
-}
+ .principalLogo {
+        width: 20rem;
+        height: 10.39rem;
+        display: inline;
+        margin-top: 0rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 3rem;
+      }
 
 #signInPage, #timeLine, #inputEditPost, .invisible {
   display : none;
@@ -48,6 +49,70 @@ p {
   color: 	#1a1a1a;
   letter-spacing: 0.0625rem;
 }
+
+      .postInBox {
+   display:inline-block;
+        width: 40rem;
+        height: 10rem;
+        border: black 3px solid;
+        margin: 2rem;
+        margin-left: auto;
+        margin-right: auto; */
+      }
+
+      .txtdate{
+        text-align: right;
+        margin: .5rem;
+      }
+
+      .txtname, .txtmns, .txtlike{
+        text-align: left;
+        margin: .5rem;
+      }
+
+      #goHomePage{
+        width: 3rem;
+        height: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      #signOut{
+        width: 3rem;
+        height: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        margin-right: 3rem;
+        margin-left:3rem;
+        float: right;
+      }
+
+      #goProfilePage{
+        width: 3rem;
+        height: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+        margin-right: 3rem;
+        margin-left:3rem;
+        float: left;
+      }
+
+      .buttonLike{
+        float: left;
+        width: 2rem;
+        height : 2rem;
+        
+      }
+
+      .element{
+        display: block;
+      }
+
+      #imgProfile{
+        width: 18.75rem;
+        height: 18.75rem;
+        border-radius: 9.37rem
+      }
 
 .input {
   display: inline-block;
@@ -104,27 +169,40 @@ p {
   border:Transparent;
   cursor : pointer;
 }
-.textForClick {
-  text-align: center;
-  font-size: 1.1em;
-  margin: auto;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
 
-}
+ .buttonDelete, .buttonEdit, .buttonEditProfile {
+          float: right;
+          position: relative;
+          margin-bottom: 0rem;
+        }
+ /*.button, .buttonDelete, .buttonEdit, .saveButton, .cancel, .buttonEditProfile {
+          height: 3rem;
+          text-align: center;
+          display: flex;
+          font-size: 16pt;
+          margin-left: auto;
+          margin-right: auto;
+          border-radius: 5rem;
+          cursor: pointer;
+        }*/
 
-#textForCreateAcount {
-  text-align: center;
-  font-size: .9em;
-  margin: auto;
-}
-
+  .textForClick {
+          text-align: center;
+          font-size: 18pt;
+          margin: auto;
+          text-decoration: underline;
+          font-weight: bold;
+          cursor: pointer;
+      }
+      #textForCreateAcount {
+          text-align: center;
+          font-size: 18pt;
+          margin: auto;
+      }
 .contextWords{
   font-size: .9em;
   margin-bottom: 1%;
 }
-
 
 .postInBox {
   width: 17rem;

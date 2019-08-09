@@ -8,13 +8,14 @@
   </head>
 
   <body>
-    <header><img class="principalLogo" src="images/principalLogo.jpg"></header>
-
-    <button class="button"  id="signOut">Sign Out</button>
-
+    <nav>
+      <img class= "icon" id ="signOut" src="https://image.flaticon.com/icons/png/512/64/64498.png">
+      <img class= "icon" id ="goHomePage" src="https://image.flaticon.com/icons/png/512/69/69524.png">
+      <img class= "icon" id ="goProfilePage" src="https://image.flaticon.com/icons/png/512/64/64096.png">
+    </nav>
+    <header><img class="principalLogo" src="images/logo.png"></header>
     <main>
       <section id="homePage">
-        <button class="button"  id="goProfilePage">Profile</button>
         <p id="homePageWelcome">Bienvenido a Open!!! mira lo que comparte la comunidad!!!<p>
         <p id = "alertForPostEmpty"></p>
         <textArea class="post" id="timelinePost" type="textArea" rows="6"  cols="30" placeholder="¿Cómo te sientes?" required></textarea>
@@ -27,7 +28,6 @@
       </section>
 
       <section id="timeLine">
-        <button class= "button" id= "goHomePage">Inicio</button>
         <p id= "profileWelcome">ESTO SOLO LO VES TÚ</p>
         <div id= "profile"></div>
         <p id = "alertForPostEmptyProfile"></p>
