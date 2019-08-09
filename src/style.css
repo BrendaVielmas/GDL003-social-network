@@ -14,6 +14,9 @@ body, html {
 }
 
 #mainHome{
+  margin: auto; 
+    display: block;
+  text-align: center;
   column-count: auto;
   font-size: 1.125rem;
   width: 100%;
@@ -25,10 +28,10 @@ body, html {
 .principalLogo {
     width: 20rem;
     height: 20rem;
-    display: inline;
     margin-bottom: 3rem;
     margin: auto;
     display: block;
+
     text-align: center;
 }
 
@@ -63,7 +66,7 @@ p {
  .txtmns {
         margin: .5rem;
         text-align: left;
-         overflow: scroll;
+         overflow: auto;
           word-wrap: break-word;
   max-height: 12rem;
 
@@ -107,17 +110,44 @@ p {
   text-align: center;
 }
    #profile{
-    display: inline-block;
-    margin: auto;
-    display: block;
-  text-align: center;
-  font-size: 2rem;
-   }
+
+     display: inline-block;
+    width: 23rem;
+    height: 8rem;
+    margin: 2rem;
+     text-align: left;
+     vertical-align: top;
+     
+   }   
+   
       #imgProfile{
+        display: inline-block;
         width: 6.75rem;
         height: 6.75rem;
-        border-radius: 9.37rem
+        border-radius: 9.37rem;
+         margin-right: 2rem;
       }
+
+     #nameProfile {
+      display: inline-block;
+
+margin: 0;
+      }
+
+    .buttonEditPhotoProfile {
+  margin-bottom: 5rem;
+ text-align: left;
+ display: block;
+  margin-left: 1rem;
+  height: 1.5rem;
+  color: #fff;
+  letter-spacing: 0.0625rem;
+  font-size: .9rem;
+  border-radius: 3.125rem;
+  background-color: #000;
+  border: 0.1875rem solid #000;
+  cursor : pointer;
+    }
 
 .input {
   display: inline-block;
@@ -152,9 +182,9 @@ p {
   border-radius: 3.125rem;
   margin-top: 1.25rem;
   background-color: #000;
-  transition: .5s;
   border: 0.1875rem solid #000;
   cursor : pointer;
+
 }
 .buttonDelete, .buttonEdit, .buttonEditProfile{
   text-decoration: underline;
@@ -169,13 +199,12 @@ p {
   transition: .5s;
   border:Transparent;
   cursor : pointer;
-}
-
- .buttonDelete, .buttonEdit, .buttonEditProfile {
-          float: right;
+  float: right;
           position: relative;
           margin-bottom: 0rem;
-        }
+}
+
+
  /*.button, .buttonDelete, .buttonEdit, .saveButton, .cancel, .buttonEditProfile {
           height: 3rem;
           text-align: center;
@@ -222,6 +251,10 @@ p {
 
 
       }
+
+   .icon {
+    cursor: pointer;
+   }
 
 .post {
   font-size: 1em;
