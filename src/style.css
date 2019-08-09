@@ -72,7 +72,7 @@ p {
 
       }
       .buttonLike{
-        margin-top: 2.3rem;
+        margin-top: 1rem;
          margin-left:.4rem;
          margin-bottom: .2rem;
     display: inline-block;
@@ -189,7 +189,7 @@ margin: 0;
 .buttonDelete, .buttonEdit, .buttonEditProfile{
   text-decoration: underline;
   display: block;
-  height: 2.8125rem;
+  height: 1rem;
   text-align: center;
   color: #000;
   letter-spacing: 0.0625rem;
