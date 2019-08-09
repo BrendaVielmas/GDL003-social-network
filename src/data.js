@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 			email: user.email,
 			photo: user.photoURL
 		}
-		document.getElementById("profile").innerHTML = user.displayName + '<br>' + user.email + '<br>' + `<img id= "imgProfile" src=${user.photoURL }>`;
+		document.getElementById("profile").innerHTML = `<img id= "imgProfile" src=${user.photoURL }>` + '<br><br>' + user.displayName ;
 	} else {
 		// User is signed out.
 		console.log("usuario desconectado");

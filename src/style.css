@@ -1,6 +1,6 @@
 /*moviles 320x568---iPhone 5/SE*/
 body, html {
-  
+
   margin: 0;
   padding: 0;
   width: 100%;
@@ -24,17 +24,18 @@ body, html {
 }
 .principalLogo {
     width: 20rem;
-    height: 10.39rem;
+    height: 20rem;
     display: inline;
     margin-bottom: 3rem;
-    margin: auto; 
+    margin: auto;
     display: block;
     text-align: center;
 }
 
-#signInPage, #timeLine, #inputEditPost,  {
+#signInPage, #timeLine, #inputEditPost  {
   display : none;
 }
+
 .invisible{
   display : none;
 }
@@ -68,12 +69,14 @@ p {
 
       }
       .buttonLike{
-         margin: .1rem; 
+        margin-top: 2.3rem;
+         margin-left:.4rem;
+         margin-bottom: .2rem;
     display: inline-block;
   text-align: center;
         width: 1.5rem;
         height : 1.5rem;
-        
+
       }
 .txtlike{
   display: inline-block;
@@ -81,10 +84,9 @@ p {
   vertical-align: middle;
 }
 #nav{
-   margin: auto; 
     display: block;
   text-align: center;
-   margin-top: 1rem;
+   margin-top: 1.5rem;
         margin-bottom: 1rem;
         margin-right: 1rem;
         margin-left:1rem;
@@ -101,7 +103,7 @@ p {
       #goProfilePage{
     float: left;
       }
-#selectTheStatus{
+#selectTheStatus, #selectTheStatusPerfil{
   text-align: center;
 }
    #profile{
@@ -109,7 +111,8 @@ p {
     margin: auto;
     display: block;
   text-align: center;
-   }   
+  font-size: 2rem;
+   }
       #imgProfile{
         width: 6.75rem;
         height: 6.75rem;
@@ -153,14 +156,14 @@ p {
   border: 0.1875rem solid #000;
   cursor : pointer;
 }
-.buttonDelete, .buttonEdit{
+.buttonDelete, .buttonEdit, .buttonEditProfile{
   text-decoration: underline;
   display: block;
   height: 2.8125rem;
   text-align: center;
   color: #000;
   letter-spacing: 0.0625rem;
-  margin: auto;
+  margin-top: 2rem;
   font-size: .9rem;
   background-color:Transparent;
   transition: .5s;
@@ -191,7 +194,10 @@ p {
           text-decoration: underline;
           font-weight: bold;
           cursor: pointer;
+          color:#333333;
       }
+
+
       #textForCreateAcount {
           text-align: center;
           font-size: 18pt;
@@ -216,18 +222,26 @@ p {
 
 
       }
-   
+
 .post {
   font-size: 1em;
   padding: 2% 2%;
   letter-spacing: 0.0625rem;
-  margin: auto; 
+  margin: auto;
   display: block;
   width: 16rem;
   height: 8rem;
 
-  
+
 }
+
+#buttonReset {
+          top: 95%;
+          position: fixed;
+          margin-left: 35rem;
+          width: 3rem;
+          height: 3rem;
+        }
 /*tablets
 @media screen and (min-width: 700px) and (max-width: 1023px) {
   .postInBox {

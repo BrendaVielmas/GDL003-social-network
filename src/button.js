@@ -286,6 +286,10 @@ const security = firebase.auth().onAuthStateChanged(function(user) {
 	};
 });
 
+document.getElementById("buttonReset").addEventListener('click',() => {
+window.location = "#nav";
+});
+
 document.getElementById("signOut").addEventListener("click", signOutButton);
 document.getElementById("buttonForCreatePost").addEventListener("click", createPostFunction);
 document.getElementById("buttonForCreatePostPerfil").addEventListener("click", createPostFunctionProfile);
