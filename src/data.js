@@ -87,10 +87,6 @@ window.data = {
 			});
 	},
 
-	/*	deletePost : () => {
-			db.collection("Users").doc(docRef.id).delete();
-		}, */
-
 	signIn: (email, password) => {
 		console.log("in: data.js signIn")
 		firebase.auth().signInWithEmailAndPassword(email, password)

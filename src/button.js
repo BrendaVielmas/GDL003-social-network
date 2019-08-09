@@ -39,7 +39,7 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 						<button class="buttonEdit" id="${doc.id}buttonEditPost" data-id="${doc.id}">Editar</button>
 						<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 						<section id="${doc.id}buttonForLike">
-							<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}">
+							<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}" alt="botón de me gusta">
 							<p class= "txtlike">Me gusta ${postOfUser.likes}</p>
 						</section>
 					</section>`
@@ -55,7 +55,7 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 				<p class= "txtname">${postOfUser.name}</p>
 				<p class= "txtmns">${postOfUser.message}</p>
 				<section id="buttonForLike">
- 					<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}">
+ 					<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}" alt="botón de me gusta">
  					<p class= "txtlike">Me gusta ${postOfUser.likes}</p>
  				</section>
  			</section>`
@@ -121,7 +121,7 @@ dbUid.collection("Users").orderBy("dates", "desc")
 				document.getElementById("sectionWithUidPost").innerHTML += `
 
 			<section class="invisible" id="${doc.id}inputEditPostProfile">
-				<input class= "post" id= "${doc.id}editPostInputProfile" type="textArea" size = "30" value = "${postOfUserProfile.message}"></input>
+				<input class= "post" id= "${doc.id}editPostInputProfile" type="textArea" size = "30" value = "${postOfUserProfile.message}" aria-labelled="post"></input>
 				<label><input type="radio" name="${doc.id}radioForStatusProfile" value="Publico" ${publicChecked}>Público</label>
 				<label><input type="radio" name="${doc.id}radioForStatusProfile" value="Privado" ${privateChecked}>Privado</label>
 				<section id="boxForBtnSaveCancelProfile">
@@ -136,13 +136,10 @@ dbUid.collection("Users").orderBy("dates", "desc")
 				<button class="buttonEditProfile" id="${doc.id}buttonEdit" data-id="${doc.id}">Editar</button>
 				<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 				<section id="${doc.id}buttonForLikeProfile">
-					<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}">
+					<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}" alt="botón de me gusta">
 					<p class= "txtlike">Me gusta ${postOfUserProfile.likes}</p>
 				</section>
 			</section>`
-
-
-
 
 			};
 		});
@@ -216,9 +213,10 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
 const deleteButton = (event) => {
+
 	// messageToDelete =
 	let idOfPost = event.target.getAttribute("data-id");
-	if (confirm("¿Estás seguro que deseas eliminar esta publicación?")) {
+		if (confirm("¿Estás seguro que deseas eliminar esta publicación?")) {
 		window.data.deleteFunction(idOfPost);
 	}
 };

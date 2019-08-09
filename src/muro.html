@@ -9,19 +9,19 @@
 
   <body>
     <nav id="nav">
-      <img class= "icon" id ="signOut" src="https://image.flaticon.com/icons/png/512/64/64498.png">
-      <img class= "icon" id ="goHomePage" src="https://image.flaticon.com/icons/png/512/69/69524.png">
-      <img class= "icon" id ="goProfilePage" src="https://image.flaticon.com/icons/png/512/64/64096.png">
+      <img class= "icon" id ="signOut" src="https://image.flaticon.com/icons/png/512/64/64498.png"  alt="botón para cerrar sesión">
+      <img class= "icon" id ="goHomePage" src="https://image.flaticon.com/icons/png/512/69/69524.png" alt="botón para ir a página de inicio, muro general">
+      <img class= "icon" id ="goProfilePage" src="https://image.flaticon.com/icons/png/512/64/64096.png" alt="botón para ir a tu página de perfil">
     </nav>
-    <header><img class="principalLogo" src="images/logo2.png"></header>
+    <header><img class="principalLogo" src="images/logo2.png" alt="Openix, una red de puertas abiertas"></header>
     <main>
       <section id="homePage">
         <p id="homePageWelcome">¡Hola! ¿Qué compartirás hoy?<p>
         <p id = "alertForPostEmpty"></p>
         <textArea class="post" id="timelinePost" type="textArea" rows="6"  cols="30" placeholder="¿Cómo te sientes?" required></textarea>
         <section id="selectTheStatus">
-          <label><input type="radio" name="radioForStatus" value="Publico" checked="checked">Público</label>
-          <label><input type="radio" name="radioForStatus" value="Privado">Privado</label>
+          <label><input type="radio" name="radioForStatus" value="Publico" checked="checked" aria-labelledby="opción para crear post público">Público</label>
+          <label><input type="radio" name="radioForStatus" value="Privado" aria-labelledby="opción para crear post privado">Privado</label>
         </section>
         <button class="button" id="buttonForCreatePost">Publicar</button>
         <section id="sectionWithPost"></section>
@@ -30,7 +30,7 @@
       <section id="timeLine">
         <div id= "profile"></div>
         <p id = "alertForPostEmptyProfile"></p>
-        <textArea class= "post" class="textarea" id= "timelinePostPerfil" type="textArea" rows= "6"  cols= "70" placeholder= "¿Cómo te sientes?" required></textarea>
+        <textArea class= "post" class="textarea" id= "timelinePostPerfil" type="textArea" rows= "6"  cols= "70" placeholder= "¿Cómo te sientes?" role="textbox" name="cuadro de escritura de post" required></textarea>
         <section id="selectTheStatusPerfil">
           <label><input type="radio" name="radioForStatusProfile" value="Publico" checked="checked">Público</label>
           <label><input type="radio" name="radioForStatusProfile" value="Privado">Privado</label>
