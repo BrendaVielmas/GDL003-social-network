@@ -26,9 +26,11 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 						<input class= "post" id= "${doc.id}editPostInput" type="textArea" size = "30" value = "${postOfUser.message}"></input>
 						<label><input type="radio" name="${doc.id}radioForStatus" value="Publico" ${publicChecked}>Público</label>
 						<label><input type="radio" name="${doc.id}radioForStatus" value="Privado" ${privateChecked}>Privado</label>
-						<button class= "saveButton" id="${doc.id}saveButton" data-id="${doc.id}">Guardar</button>
-						<button class= "cancel" id="${doc.id}cancel" data-id="${doc.id}">Cancelar</button>
-					</section>
+						<section id="boxForBtnSaveCancel">
+							<button class= "saveButton" id="${doc.id}saveButton" data-id="${doc.id}">Guardar</button>
+							<button class= "cancel" id="${doc.id}cancel" data-id="${doc.id}">Cancelar</button>
+						</section>			
+						</section>
 
 					<section id="${doc.id}thisPost" class = "postInBox">
 						<p class= "txtdate"> ${postOfUser.dates}</p>
@@ -122,8 +124,10 @@ dbUid.collection("Users").orderBy("dates", "desc")
 				<input class= "post" id= "${doc.id}editPostInputProfile" type="textArea" size = "30" value = "${postOfUserProfile.message}"></input>
 				<label><input type="radio" name="${doc.id}radioForStatusProfile" value="Publico" ${publicChecked}>Público</label>
 				<label><input type="radio" name="${doc.id}radioForStatusProfile" value="Privado" ${privateChecked}>Privado</label>
-				<button class= "saveButtonProfile" id="${doc.id}saveButton" data-id="${doc.id}">Guardar</button>
-				<button class= "cancel" id="${doc.id}cancelButton" data-id="${doc.id}">Cancelar</button>
+				<section id="boxForBtnSaveCancelProfile">
+					<button class= "saveButtonProfile" id="${doc.id}saveButton" data-id="${doc.id}">Guardar</button>
+					<button class= "cancel" id="${doc.id}cancelButton" data-id="${doc.id}">Cancelar</button>
+				</section>
 			</section>
 			<section id="${doc.id}thisPostProfile" class = "postInBox">
 				<p class= "txtdate">${postOfUserProfile.dates}</p>
