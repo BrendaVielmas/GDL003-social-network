@@ -83,6 +83,12 @@ let uiConfig = {
 let ui = new firebaseui.auth.AuthUI(firebase.auth());
 ui.start('#authContainer', uiConfig);
 
+
+document.getElementById("buttonComeBack").addEventListener("click", ()=>{
+	signInPage.style.display = "none";
+	logInPage.style.display ="block";
+});
+
 document.getElementById("buttonSignIn").addEventListener("click", signIn);
 document.getElementById("createAcount").addEventListener("click", createAcountFunction);
 document.getElementById("buttonRegister").addEventListener("click", createUser);

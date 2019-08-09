@@ -1,5 +1,6 @@
 /*moviles 320x568---iPhone 5/SE*/
 body, html {
+
   margin: 0;
   padding: 0;
   width: 100%;
@@ -26,16 +27,18 @@ body, html {
 }
 .principalLogo {
     width: 20rem;
-    height: 10.39rem;
-    display: block;
+    height: 20rem;
     margin-bottom: 3rem;
-    margin: auto; 
+    margin: auto;
+    display: block;
+
     text-align: center;
 }
 
-#signInPage, #timeLine, #inputEditPost,  {
+#signInPage, #timeLine, #inputEditPost  {
   display : none;
 }
+
 .invisible{
   display : none;
 }
@@ -69,12 +72,14 @@ p {
 
       }
       .buttonLike{
-         margin: .1rem; 
+        margin-top: 2.3rem;
+         margin-left:.4rem;
+         margin-bottom: .2rem;
     display: inline-block;
   text-align: center;
         width: 1.5rem;
         height : 1.5rem;
-        
+
       }
 .txtlike{
   display: inline-block;
@@ -82,10 +87,9 @@ p {
   vertical-align: middle;
 }
 #nav{
-   margin: auto; 
     display: block;
   text-align: center;
-   margin-top: 1rem;
+   margin-top: 1.5rem;
         margin-bottom: 1rem;
         margin-right: 1rem;
         margin-left:1rem;
@@ -106,6 +110,7 @@ p {
   text-align: center;
 }
    #profile{
+
      display: inline-block;
     width: 23rem;
     height: 8rem;
@@ -188,7 +193,7 @@ margin: 0;
   text-align: center;
   color: #000;
   letter-spacing: 0.0625rem;
-  margin: auto;
+  margin-top: 2rem;
   font-size: .9rem;
   background-color:Transparent;
   transition: .5s;
@@ -218,7 +223,10 @@ margin: 0;
           text-decoration: underline;
           font-weight: bold;
           cursor: pointer;
+          color:#333333;
       }
+
+
       #textForCreateAcount {
           text-align: center;
           font-size: 18pt;
@@ -243,20 +251,30 @@ margin: 0;
 
 
       }
+
    .icon {
     cursor: pointer;
    }
+
 .post {
   font-size: 1em;
   padding: 2% 2%;
   letter-spacing: 0.0625rem;
-  margin: auto; 
+  margin: auto;
   display: block;
   width: 16rem;
   height: 8rem;
 
-  
+
 }
+
+#buttonReset {
+          top: 95%;
+          position: fixed;
+          margin-left: 35rem;
+          width: 3rem;
+          height: 3rem;
+        }
 /*tablets
 @media screen and (min-width: 700px) and (max-width: 1023px) {
   .postInBox {

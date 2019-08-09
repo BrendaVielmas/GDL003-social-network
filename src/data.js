@@ -11,15 +11,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-
-
-
 window.data = {
 
 	acountValidation: (user) => {
 		console.log("in: data.js acountValidation")
 		user.sendEmailVerification().then(() => {
 			console.log("Enviando correo electrónico");
+			alert("Verifica tu correo electrónico para ingresar");
 			// Email sent.
 		}).catch((error) => {
 			console.log("Error de verificación");
@@ -48,6 +46,8 @@ window.data = {
 			let errorMessage = error.message;
 			console.log(errorCode);
 			console.log(errorMessage);
+			alert(error.message);
+			return true;
 		});
 	},
 
@@ -107,6 +107,8 @@ window.data = {
 				let errorMessage = error.message;
 				console.log(errorCode);
 				console.log(errorMessage);
+				alert(error.message);
+        return false;
 			});
 	},
 
