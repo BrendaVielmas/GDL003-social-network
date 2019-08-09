@@ -183,6 +183,34 @@ dbUid.collection("Users").orderBy("dates", "desc")
 	});
 //finalize of profile part
 
+
+firebase.auth().onAuthStateChanged(function(user) {
+	console.log("in: data.js onAuthStateChanged");
+	if (user && user.emailVerified) {
+		console.log("usuario conectado");
+		console.log(user);
+		localStorage.setItem("name", user.displayName);
+		localStorage.setItem("uid", user.uid);
+		//User is signed in.
+		const obj = {
+			name: user.displayName,
+			email: user.email,
+			photo: user.photoURL
+		}
+		document.getElementById("profile").innerHTML = `
+		<img id= "imgProfile" src=${user.photoURL}><strong><p style="vertical-align:top;"
+     id= "nameProfile">${user.displayName}</p></strong>` + `
+			<section>
+		 		<button class="buttonEditPhotoProfile">Cambiar</button>
+		 </section>` ;
+	} else {
+		// User is signed out.
+		console.log("usuario desconectado");
+	};
+})
+
+
+
 const deleteButton = (event) => {
 	// messageToDelete =
 	let idOfPost = event.target.getAttribute("data-id");

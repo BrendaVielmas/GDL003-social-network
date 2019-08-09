@@ -9,25 +9,9 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.auth().onAuthStateChanged(function(user) {
-	console.log("in: data.js onAuthStateChanged");
-	if (user && user.emailVerified) {
-		console.log("usuario conectado");
-		console.log(user);
-		localStorage.setItem("name", user.displayName);
-		localStorage.setItem("uid", user.uid);
-		//User is signed in.
-		const obj = {
-			name: user.displayName,
-			email: user.email,
-			photo: user.photoURL
-		}
-		document.getElementById("profile").innerHTML = user.displayName + '<br>' + user.email + '<br>' + `<img id= "imgProfile" src=${user.photoURL }>`;
-	} else {
-		// User is signed out.
-		console.log("usuario desconectado");
-	};
-})
+
+
+
 
 
 window.data = {
