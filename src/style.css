@@ -7,7 +7,7 @@ body, html {
   height: 100%;
   position: relative;
   font-family:'Ubuntu', sans-serif;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM32q3PhH1Mz7Ji0MLpd-uqspBdQOfo5egaHr30tuMcBsAx-1Y8Q");
+  background-image: url(images/fondo.png);
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
@@ -22,20 +22,22 @@ body, html {
   padding: 0.1875rem;
   position: relative;
 }
- .principalLogo {
-        width: 20rem;
-        height: 10.39rem;
-        display: inline;
-        margin-top: 0rem;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 3rem;
-      }
-
-#signInPage, #timeLine, #inputEditPost, .invisible {
-  display : none;
+.principalLogo {
+    width: 20rem;
+    height: 10.39rem;
+    display: inline;
+    margin-bottom: 3rem;
+    margin: auto; 
+    display: block;
+    text-align: center;
 }
 
+#signInPage, #timeLine, #inputEditPost,  {
+  display : none;
+}
+.invisible{
+  display : none;
+}
 #slogan{
   padding-bottom: 4%;
   font-size: 1em;
@@ -43,74 +45,74 @@ body, html {
 
 p {
   text-align: center;
-  font-size: .9em;
   margin-top: 2%;
   margin-bottom: 5%;
   color: 	#1a1a1a;
   letter-spacing: 0.0625rem;
 }
-
-      .postInBox {
-   display:inline-block;
-        width: 40rem;
-        height: 10rem;
-        border: black 3px solid;
-        margin: 2rem;
-        margin-left: auto;
-        margin-right: auto; */
-      }
-
-      .txtdate{
+ .txtdate{
         text-align: right;
         margin: .5rem;
       }
-
-      .txtname, .txtmns, .txtlike{
-        text-align: left;
+.txtname{
         margin: .5rem;
-      }
+        text-align: left;
+        font-weight:bold;
+}
+ .txtmns {
+        margin: .5rem;
+        text-align: left;
+         overflow: scroll;
+          word-wrap: break-word;
+  max-height: 12rem;
 
-      #goHomePage{
-        width: 3rem;
-        height: 3rem;
-        margin-top: 3rem;
-        margin-bottom: 3rem;
       }
-
-      #signOut{
-        width: 3rem;
-        height: 3rem;
-        margin-top: 3rem;
+      .buttonLike{
+         margin: .1rem; 
+    display: inline-block;
+  text-align: center;
+        width: 1.5rem;
+        height : 1.5rem;
+        
+      }
+.txtlike{
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+#nav{
+   margin: auto; 
+    display: block;
+  text-align: center;
+   margin-top: 1rem;
         margin-bottom: 1rem;
-        margin-right: 3rem;
-        margin-left:3rem;
+        margin-right: 1rem;
+        margin-left:1rem;
+}
+      #goHomePage, #signOut, #goProfilePage{
+        width: 3rem;
+        height: 3rem;
+      }
+
+    #signOut {
         float: right;
       }
 
       #goProfilePage{
-        width: 3rem;
-        height: 3rem;
-        margin-top: 3rem;
-        margin-bottom: 1rem;
-        margin-right: 3rem;
-        margin-left:3rem;
-        float: left;
+    float: left;
       }
-
-      .buttonLike{
-        float: left;
-        width: 2rem;
-        height : 2rem;
-        
-      }
-
-      .element{
-        display: block;
-      }
-
+#selectTheStatus{
+  text-align: center;
+}
+   #profile{
+    display: inline-block;
+    margin: auto;
+    display: block;
+  text-align: center;
+   }   
       #imgProfile{
-        width: 18.75rem;
-        height: 18.75rem;
+        width: 6.75rem;
+        height: 6.75rem;
         border-radius: 9.37rem
       }
 
@@ -154,16 +156,12 @@ p {
 .buttonDelete, .buttonEdit{
   text-decoration: underline;
   display: block;
-  min-width: 11.25rem;
-  padding: .4em;
   height: 2.8125rem;
   text-align: center;
   color: #000;
   letter-spacing: 0.0625rem;
   margin: auto;
-  font-size: 1.125rem;
-  border-radius: 3.125rem;
-  margin-top: 1.25rem;
+  font-size: .9rem;
   background-color:Transparent;
   transition: .5s;
   border:Transparent;
@@ -204,30 +202,58 @@ p {
   margin-bottom: 1%;
 }
 
-.postInBox {
-  width: 17rem;
-  height: 10rem;
-  border: black 0.1875rem solid;
-  margin: 2rem;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 2%;
-  font-size: 1em;
-  
-}
 
+ .postInBox {
+   display:inline-block;
+        width: 20rem;
+        min-height: 10rem;
+        max-height: 20rem;
+        border: black 3px solid;
+        margin: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+
+
+      }
+   
 .post {
   font-size: 1em;
   padding: 2% 2%;
   letter-spacing: 0.0625rem;
   margin: auto; 
   display: block;
-  text-align: center;
+  width: 16rem;
+  height: 8rem;
+
   
 }
 /*tablets
-@media screen and (min-width: 481px) and (max-width: 780px) {}
+@media screen and (min-width: 700px) and (max-width: 1023px) {
+  .postInBox {
+   display:inline-block;
+        width: 40rem;
+        height: 10rem;
+        border: black 3px solid;
+        margin: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+  text-align: center
+      }
+}
 escritorio normal
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+  .postInBox {
+   display:inline-block;
+        width: 60rem;
+        height: 10rem;
+        border: black 3px solid;
+        margin: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+  text-align: center
+      }
+}
 */

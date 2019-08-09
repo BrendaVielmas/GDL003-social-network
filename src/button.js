@@ -1,5 +1,4 @@
 const homePage = document.getElementById("homePage");
-
 const timeLine = document.getElementById("timeLine")
 const timelinePost = document.getElementById("timelinePost");
 const timelinePostPerfil = document.getElementById("timelinePostPerfil");
@@ -32,9 +31,9 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 					</section>
 
 					<section id="${doc.id}thisPost" class = "postInBox">
-						<p class= "txtdate">Fecha: ${postOfUser.dates}</p>
-						<p class= "txtname">Nombre: ${postOfUser.name}</p>
-						<p class= "txtmns">Estado: ${postOfUser.message}</p>
+						<p class= "txtdate"> ${postOfUser.dates}</p>
+						<p class= "txtname">${postOfUser.name}</p>
+						<p class= "txtmns">${postOfUser.message}</p>
 						<button class="buttonEdit" id="${doc.id}buttonEditPost" data-id="${doc.id}">Editar</button>
 						<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 						<section id="${doc.id}buttonForLike">
@@ -50,9 +49,9 @@ db.collection("Users").orderBy("dates", "desc").where("status", "==", "Publico")
 				let postOfUser = doc.data();
 				document.getElementById("sectionWithPost").innerHTML += `
  			<section id="${doc.id}thisPost" class = "postInBox">
-				<p class= "txtdate">Fecha: ${postOfUser.dates}</p>
-				<p class= "txtname">Nombre: ${postOfUser.name}</p>
-				<p class= "txtmns">Estado: ${postOfUser.message}</p>
+				<p class= "txtdate"> ${postOfUser.dates}</p>
+				<p class= "txtname">${postOfUser.name}</p>
+				<p class= "txtmns">${postOfUser.message}</p>
 				<section id="buttonForLike">
  					<img src="images/heart.svg" id="${doc.id}buttonLike" class="buttonLike" data-id="${doc.id}">
  					<p class= "txtlike">Me gusta ${postOfUser.likes}</p>
@@ -127,9 +126,9 @@ dbUid.collection("Users").orderBy("dates", "desc")
 				<button class= "cancel" id="${doc.id}cancelButton" data-id="${doc.id}">Cancelar</button>
 			</section>
 			<section id="${doc.id}thisPostProfile" class = "postInBox">
-				<p class= "txtdate">Fecha: ${postOfUserProfile.dates}</p>
-				<p class= "txtname">Nombre: ${postOfUserProfile.name}</p>
-				<p class= "txtmns">Estado: ${postOfUserProfile.message}</p>
+				<p class= "txtdate">${postOfUserProfile.dates}</p>
+				<p class= "txtname">${postOfUserProfile.name}</p>
+				<p class= "txtmns">${postOfUserProfile.message}</p>
 				<button class="buttonEditProfile" id="${doc.id}buttonEdit" data-id="${doc.id}">Editar</button>
 				<button class="buttonDelete" id="${doc.id}buttonDelete" data-id="${doc.id}">Eliminar</button>
 				<section id="${doc.id}buttonForLikeProfile">
