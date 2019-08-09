@@ -9,21 +9,21 @@
     <link rel="stylesheet" href="style.css"/>
   </head>
   <body>
-
+    <section id = "mainHome">
     <p id="alertForVerification">Verifica tu cuenta desde tu correo electrónico para acceder.</p>
     <header><img alt="Logo de Open: red social accesible" class="principalLogo" src="images/principalLogo.jpg"></header>
 
     <section id="logInPage">
-      <p id="slogan" aria-labelledby="slogan" class="contextWords"v red de puertas abiertas</p>
+      <p id="slogan" aria-labelledby="slogan" class="contextWords"v red de puertas abiertas></p>
 
       <section role="log" aria-live="polite">
         <p id="notificationARIA"></p>
       </section>
 
-      <label for="email"></label>
-      <input type="email" class="input" id="userEmail" placeholder="Correo Electrónico" size="20"/>
-      <label for="password"></label>
-      <input type="password" class="input" id="userPassword" placeholder="Contraseña" size="20"/>
+      <label class="labelForHome" for="email">Correo Electrónico</label>
+      <input type="email" class="input" id="userEmail"  size="20"/>
+      <label class="labelForHome" for="password">Contraseña</label>
+      <input type="password" class="input" id="userPassword" size="20"/>
       <button class=button id=buttonSignIn>Iniciar Sesión</button>
       <p class="contextWords">¿No tienes cuenta?</p>
       <p class="textForClick" id="createAcount">Regístrate</p>
@@ -45,7 +45,7 @@
       <input type="text" class="input" id="enterName" placeholder="Nombre Completo" size="20"/>
       <button class="button" id=buttonRegister>Crear cuenta</button>
     </section>
-
+  </section>
 
     <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
